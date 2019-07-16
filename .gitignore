@@ -1,0 +1,12 @@
+*
+
+!.config/i3
+!.config/rofi
+!.fonts
+!.bashrc
+!.gitconfig
+!.gitignore
+!.vimrc
+!.tmux.conf
+!.tmux/plugins/tmux-powerline/themes/theme.sh
+!.tmux-powerlinerc
