@@ -76,7 +76,7 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8  Postman"
 set $ws9 "9  Chats"
-set $ws10 "10  Music"
+set $ws10 "10  Music"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
