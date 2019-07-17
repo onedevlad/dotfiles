@@ -28,6 +28,7 @@ Plug 'bkad/CamelCaseMotion'
 Plug 'easymotion/vim-easymotion'
 Plug 'joeytwiddle/sexy_scroller.vim'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-fugitive'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
@@ -42,6 +43,8 @@ autocmd vimenter * NERDTree
 
 " Enable showing filenames
 let g:airline#extensions#tabline#enabled = 0
+let g:airline_powerline_fonts = 1
+
 let g:rainbow_active = 1
 
 " Turn backup off, since most stuff is in SVN, git etc anyway...
