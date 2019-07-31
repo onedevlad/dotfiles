@@ -189,7 +189,7 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 
 # EXECs
-exec --no-startup-id "setxkbmap -model pc105 -layout us,ua -option grp:ctrl_shift_toggle"
+exec --no-startup-id "setxkbmap -model pc105 -layout us,ua -option grp:lwin_toggle"
 exec --no-startup-id rhythmbox
 exec --no-startup-id telegram-desktop
 exec --no-startup-id xset -b # Disables system bell
@@ -206,10 +206,11 @@ mode $mode_sys {
   bindsym l exec i3lock-fancy; mode "default"
   bindsym s exec systemctl poweroff
   bindsym r exec systemctl reboot
-  bindsym z exec systemctl suspend; mode "default"
+  bindsym z exec i3lock-fancy && systemctl suspend; mode "default"
   bindsym w exec systemctl hibernate
   bindsym f exec shutdown -h now
   bindsym h exec gnome-terminal -e "bash -c htop"; mode "default"
+  bindsym m exec gnome-terminal -e "bash -c 'vim ~/.config/i3/config'"; mode "default"
 
   bindsym x exit
 
