@@ -100,13 +100,19 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 " Find merge conflict markers
 nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$ )<CR>
 
+" Unf*ck tmux keybindings highjack
+map [1;5A <C-Up>
+map [1;5B <C-Down>
+map [1;5D <C-Left>
+map [1;5C <C-Right>
+
 " Resize vsplit
 nnoremap <C-Left> :exe "vertical resize -2"<CR>
 nnoremap <C-Right> :exe "vertical resize +2"<CR>
 
 " Resize hsplit
-" nnoremap <C-Up> :exe "resize -2"<CR>
-" nnoremap <C-Down> :exe "resize +2"<CR>
+nnoremap <C-Up> :exe "resize -2"<CR>
+nnoremap <C-Down> :exe "resize +2"<CR>
 
 " Allows you to enter sudo pass and save the file when you forgot to open your file with sudo
 cmap w!! %!sudo tee > /dev/null %

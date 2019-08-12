@@ -151,11 +151,11 @@ set $base0E #c0b7f9
 set $base0F #fcc09e
 
 # Widow Colours
-#                       border  bg         text    indicator
-client.focused          $base01 $base01    $base07 $base0F
-client.focused_inactive $base02 $base02    $base03 $base0F
-client.unfocused        $base02 $base02    $base03 $base0F
-client.urgent           $base02 $base08    $base00 $base0F
+#                       border  bg      text    indicator
+client.focused          $base01 $base01 $base07 $base0F
+client.focused_inactive $base02 $base02 $base03 $base0F
+client.unfocused        $base02 $base02 $base03 $base0F
+client.urgent           $base02 $base08 $base00 $base0F
 
 # Bar
 bar {
@@ -179,14 +179,17 @@ bar {
 }
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%; exec pactl set-sink-mute 0 0; exec pkill -RTMIN+2 i3blocks #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%; exec pkill -RTMIN+2 i3blocks #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle; exec pkill -RTMIN+2 i3blocks # mute sound
 
 # Media player controls
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
+
+# Notify i3blocks with SIGNAL 10 every time Win key is pressed
+bindcode 133 --release exec --no-startup-id pkill -RTMIN+10 i3blocks
 
 # EXECs
 exec --no-startup-id "setxkbmap -model pc105 -layout us,ua -option grp:lwin_toggle"
@@ -194,6 +197,7 @@ exec --no-startup-id rhythmbox
 exec --no-startup-id telegram-desktop
 exec --no-startup-id xset -b # Disables system bell
 exec --no-startup-id xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Natural Scrolling Enabled" 1
+exec --no-startup-id nm-applet
 exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/while\ we\ sleep.png
 exec_always --no-startup-id compton -f
 
@@ -219,3 +223,6 @@ mode $mode_sys {
   bindsym Return mode "default"
 }
 bindsym $mod+q mode $mode_sys
+
+bindsym --release Print exec --no-startup-id gnome-screenshot -ci
+bindsym --release Shift+Print exec --no-startup-id gnome-screenshot -aci
