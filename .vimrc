@@ -32,6 +32,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
+Plug 'szw/vim-maximizer'
 call plug#end()
 
 
@@ -244,6 +245,11 @@ let g:SexyScroller_CursorTime = 5
 let g:SexyScroller_MaxTime = 300
 let g:SexyScroller_EasingStyle = 3
 let g:SexyScroller_DetectPendingKeys = 1
+
+" Maximizer
+set winminwidth=0
+set winminheight=0
+noremap <silent> <Leader>m :MaximizerToggle!<CR>
 
 " Emmet
 " let g:user_emmet_mode='in'
