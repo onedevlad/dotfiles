@@ -166,6 +166,7 @@ bar {
   height 18
   bindsym button4 nop
   bindsym button5 nop
+  tray_output LVDS-1
   colors {
     separator $base03
     background $base01
@@ -199,7 +200,8 @@ exec --no-startup-id xset -b # Disables system bell
 exec --no-startup-id xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Natural Scrolling Enabled" 1
 exec --no-startup-id nm-applet
 exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/while\ we\ sleep.png
-exec_always --no-startup-id compton -f
+exec --no-startup-id compton -f
+exec --no-startup-id "i3-battery-popup -n -L 20 -t 1m"
 
 bindsym $mod+d exec rofi -show run
 

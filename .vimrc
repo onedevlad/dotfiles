@@ -33,6 +33,8 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'szw/vim-maximizer'
+Plug 'Twinside/vim-haskellConceal'
+Plug 'dense-analysis/ale'
 call plug#end()
 
 
@@ -259,6 +261,21 @@ noremap <silent> <Leader>m :MaximizerToggle!<CR>
 " nnoremap <silent> <Plug>SurroundWordWithApostrophe  viw<esc>a'<esc>hbi'<esc>lel
 " \ :call repeat#set("\<Plug>SurroundWordWithApostrophe", v:count)<cr>
 " nmap <Leader>'  <Plug>SurroundWordWithApostrophe
+
+" ALE
+let g:ale_enabled = 0
+let b:ale_linter_aliases = ['javascript', 'vue']
+let g:airline#extensions#ale#enabled = 1
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_filetype_changed = 0
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 0
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '!'
+let g:ale_sign_column_always = 0
+nnoremap <leader>l :ALEToggle<CR>:ALELint<CR>
+" nnoremap <leader>lr :ALEDisable<CR>
 
 " ***** GLOBAL *****
 
