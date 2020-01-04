@@ -14,7 +14,7 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 hide_edge_borders smart
 
@@ -69,7 +69,7 @@ bindsym $mod+space focus mode_toggle
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1  Chrome"
 set $ws2 "2  Terminal"
-set $ws3 "3"
+set $ws3 "3  FS"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
@@ -202,6 +202,7 @@ exec --no-startup-id nm-applet
 exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/while\ we\ sleep.png
 exec --no-startup-id compton -f
 exec --no-startup-id "i3-battery-popup -n -L 20 -t 1m"
+exec --no-startup-id redshift -r
 
 bindsym $mod+d exec rofi -show run
 
@@ -209,14 +210,16 @@ set $mode_sys " SYSTEM"
 mode $mode_sys {
   bindsym j exec light -U 2
   bindsym k exec light -A 2
-  bindsym l exec i3lock-fancy; mode "default"
+  bindsym l exec ~/.config/i3/lock/locker.sh; mode "default"
   bindsym s exec systemctl poweroff
   bindsym r exec systemctl reboot
-  bindsym z exec i3lock-fancy && systemctl suspend; mode "default"
-  bindsym w exec systemctl hibernate
+  bindsym z exec systemctl suspend; mode "default"
+  bindsym w exec systemctl hibernate; mode "default"
   bindsym f exec shutdown -h now
   bindsym h exec gnome-terminal -e "bash -c htop"; mode "default"
   bindsym m exec gnome-terminal -e "bash -c 'vim ~/.config/i3/config'"; mode "default"
+  bindsym u exec --no-startup-id ~/.screenlayout/mobile.sh; mode "default"
+  bindsym i exec --no-startup-id ~/.screenlayout/work.sh; mode "default"
 
   bindsym x exit
 
@@ -224,7 +227,7 @@ mode $mode_sys {
   bindsym q mode "default"
   bindsym Return mode "default"
 }
-bindsym $mod+q mode $mode_sys
+bindsym $mod+p mode $mode_sys
 
 bindsym --release Print exec --no-startup-id gnome-screenshot -ci
 bindsym --release Shift+Print exec --no-startup-id gnome-screenshot -aci

@@ -21,7 +21,9 @@ Plug 'sickill/vim-monokai'
 Plug 'nanotech/jellybeans.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'digitaltoad/vim-pug'
-Plug 'mileszs/ack.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-easy-align'
 Plug 'mattn/emmet-vim'
 Plug 'posva/vim-vue'
 Plug 'bkad/CamelCaseMotion'
@@ -181,12 +183,12 @@ nmap <C-\> :NERDTreeFind<CR>
 nmap <silent> <leader><leader> :NERDTreeToggle<CR>
 let g:NERDTreeChDirMode = 2
 
-" Ack
-nnoremap <leader>a :Ack!<Space>
+" " Ack
+" nnoremap <leader>a :Ack!<Space>
 
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
+" if executable('ag')
+"   let g:ackprg = 'ag --vimgrep'
+" endif
 
 " CamelCaseMotion
 map <silent> w <Plug>CamelCaseMotion_w
@@ -267,7 +269,7 @@ let g:ale_enabled = 0
 let b:ale_linter_aliases = ['javascript', 'vue']
 let g:airline#extensions#ale#enabled = 1
 let g:ale_lint_on_insert_leave = 0
-let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_text_change = 'never'
 let g:ale_lint_on_filetype_changed = 0
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 0
@@ -276,6 +278,18 @@ let g:ale_sign_warning = '!'
 let g:ale_sign_column_always = 0
 nnoremap <leader>l :ALEToggle<CR>:ALELint<CR>
 " nnoremap <leader>lr :ALEDisable<CR>
+
+" FZF
+let g:fzf_action = { 'ctrl-a': 'vsplit' }
+nmap <leader><tab> <plug>(fzf-maps-n)
+nnoremap <leader>p :Files<CR>
+nnoremap <leader>a :execute 'Ag ' . input('Ag/')<CR>
+let g:fzf_layout = { 'down': '~40%' }
+
+" Easy Align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
 
 " ***** GLOBAL *****
 

@@ -9,6 +9,8 @@ export ZSH="/home/vlad/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="avit"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#888888'
+
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -115,4 +117,15 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 eval "$(thefuck --alias)"
 
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export ANDROID_NDK=~/Android/Sdk/ndk/20.0.5594570
+
 bindkey '^ ' autosuggest-accept
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
