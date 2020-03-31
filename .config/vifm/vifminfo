@@ -1,0 +1,180 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+'H
+	/home/vlad/
+	..
+1580157477
+'b
+	/home/vlad/bin/
+	..
+1580157477
+'h
+	/home/vlad/
+	..
+1580157477
+'z
+	/home/vlad/.config/vifm
+	..
+1580157477
+
+# Bookmarks:
+
+# TUI:
+al
+q0
+v2
+ov
+m-1
+l2
+r2
+
+# Left window history (oldest to newest):
+d/home/vlad
+	Music
+6
+d/home/vlad/Music
+	..
+0
+d/home/vlad
+	Pictures
+7
+d/
+	home
+4
+d/home
+	vlad
+1
+d/home/vlad
+	Music
+6
+d/home/vlad/Music
+	..
+0
+d/home/vlad
+	..
+0
+d/home
+	vlad
+1
+d/home/vlad
+	Pictures
+7
+d/home/vlad/Pictures
+	..
+0
+d/home/vlad
+	Videos
+11
+d/home
+	vlad
+1
+d/
+	run
+12
+d/run
+	media
+13
+d/run/media
+	vlad
+1
+d/run/media/vlad
+	[HDD] Storage
+3
+d/run/media/vlad/[HDD] Storage
+	Documents
+4
+d/run/media/vlad/[HDD] Storage/Documents
+	NFS Most Wanted
+3
+d/run/media/vlad/[HDD] Storage/Documents/NFS Most Wanted
+	vlad
+1
+d/run/media/vlad/[HDD] Storage/Documents/NFS Most Wanted/vlad
+	vlad
+1
+d/run/media/vlad/[HDD] Storage/Documents/NFS Most Wanted
+	vlad
+1
+d/run/media/vlad
+	[HDD] Music
+1
+d/run/media/vlad/[HDD] Music
+	..
+0
+d/run/media/vlad
+	..
+0
+d/run/media
+	..
+0
+d/run
+	lvm
+12
+d/run/lvm
+	..
+0
+d/run
+	tmpfiles.d
+21
+d/
+	home
+4
+d/home
+	vlad
+1
+d/home/vlad
+	work
+15
+d/home/vlad/work
+	eFormsPilot
+4
+d/home/vlad/work/eFormsPilot
+	..
+0
+d/home/vlad/work
+	dropem_gg-frontend
+3
+d/home/vlad
+	work
+15
+d
+
+# Right window history (oldest to newest):
+D/home/vlad
+	..
+0
+D
+
+# Command line history (oldest to newest):
+:mount 
+:qa
+:q
+
+# Search history (oldest to newest):
+/run
+/media
+/ho
+/home
+/wo
+
+# Prompt history (oldest to newest):
+
+# Local filter history (oldest to newest):
+
+# Registers:
+
+# Directory stack (oldest to newest):
+
+# Trash content:
+
+# State:
+f
+i1
+[.1
+[F
+F
+I1
+].1
+]F
+s0

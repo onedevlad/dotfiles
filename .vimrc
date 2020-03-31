@@ -14,7 +14,6 @@ Plug 'luochen1990/rainbow'
 Plug 'ternjs/tern_for_vim'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
-Plug 'valloric/youcompleteme'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'tpope/vim-commentary'
 Plug 'sickill/vim-monokai'
@@ -37,6 +36,11 @@ Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'szw/vim-maximizer'
 Plug 'Twinside/vim-haskellConceal'
 Plug 'dense-analysis/ale'
+Plug 'ap/vim-css-color'
+Plug 'vifm/vifm.vim'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'leafgarland/typescript-vim'
 call plug#end()
 
 
@@ -49,6 +53,8 @@ autocmd vimenter * NERDTree
 " Enable showing filenames
 let g:airline#extensions#tabline#enabled = 0
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#coc#enabled = 1
+let g:airline#extensions#branch#enabled = 0
 
 let g:rainbow_active = 1
 
@@ -210,13 +216,97 @@ xmap <silent> ie <Plug>CamelCaseMotion_ie
 autocmd FileType vue setlocal commentstring=//\ %s
 
 "YouCompleteMe
-set completeopt-=preview
+" set completeopt-=preview
+
+" COC
+set hidden
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+ function FindCursorPopUp() 
+     let radius = get(a:000, 0, 2)
+     let srow = screenrow()
+     let scol = screencol()
+     " it's necessary to test entire rect, as some popup might be quite small
+     for r in range(srow - radius, srow + radius)
+       for c in range(scol - radius, scol + radius)
+         let winid = popup_locate(r, c)
+         if winid != 0
+           return winid
+         endif
+       endfor
+     endfor
+   
+     return 0
+   endfunction
+   
+   function ScrollPopUp(down)
+     let winid = FindCursorPopUp()
+     if winid == 0
+       return 0
+     endif
+   
+     let pp = popup_getpos(winid)
+     call popup_setoptions( winid,
+           \ {'firstline' : pp.firstline + ( a:down ? 1 : -1 ) } )
+   
+     return 1
+   endfunction
+
+nnoremap <expr> <space> ScrollPopUp(1) ? '<esc>' : '<space>'
+nnoremap <expr> <C-@> ScrollPopUp(0) ? '<esc>' : '<C-@>'
+
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gj <Plug>(coc-diagnostic-next-error)
+nmap <silent> gk <Plug>(coc-diagnostic-prev-error)
+
+" coc extensions
+let g:coc_global_extensions = [
+  \ 'coc-tslint-plugin',
+  \ 'coc-tsserver',
+  \ 'coc-emmet',
+  \ 'coc-css',
+  \ 'coc-html',
+  \ 'coc-json',
+  \ 'coc-yank',
+  \ 'coc-prettier',
+  \ ]
 
 " EasyMotion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 let g:EasyMotion_smartcase = 1
 nmap s <Plug>(easymotion-s)
-nmap a <Plug>(easymotion-s2)
+" nmap a <Plug>(easymotion-s2)
 nmap t <Plug>(easymotion-bd-tl)
 
 map  / <Plug>(easymotion-sn)
@@ -231,17 +321,6 @@ map <Leader>k <Plug>(easymotion-k)
 map n <Plug>(easymotion-next)
 map N <Plug>(easymotion-prev)
 
-function! s:config_easyfuzzymotion(...) abort
-  return extend(copy({
-  \   'converters': [incsearch#config#fuzzyword#converter()],
-  \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
-  \   'keymap': {"\<CR>": '<Over>(easymotion)'},
-  \   'is_expr': 0,
-  \   'is_stay': 1
-  \ }), get(a:, 1, {}))
-endfunction
-
-noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
 
 " SexyScroller
 let g:SexyScroller_ScrollTime = 10
@@ -276,8 +355,9 @@ let g:ale_lint_on_save = 0
 let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '!'
 let g:ale_sign_column_always = 0
-nnoremap <leader>l :ALEToggle<CR>:ALELint<CR>
-" nnoremap <leader>lr :ALEDisable<CR>
+nnoremap <leader>ll :ALEToggle<CR>:ALELint<CR>
+nmap <leader>lj :ALENext<cr>
+nmap <leader>lk :ALEPrevious<cr>
 
 " FZF
 let g:fzf_action = { 'ctrl-a': 'vsplit' }

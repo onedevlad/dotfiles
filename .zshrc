@@ -111,9 +111,13 @@ export KEYTIMEOUT=1
 # Not to be disturbed by Ctrl-S ctrl-Q in terminals:
 stty -ixon
 
+# Ruby
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+# Haskell
+export PATH=$PATH:$HOME/.local/bin
 
 eval "$(thefuck --alias)"
 
@@ -129,3 +133,6 @@ bindkey '^ ' autosuggest-accept
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+export NVM_DIR="/home/vlad/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

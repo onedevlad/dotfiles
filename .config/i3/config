@@ -202,7 +202,7 @@ exec --no-startup-id nm-applet
 exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/while\ we\ sleep.png
 exec --no-startup-id compton -f
 exec --no-startup-id "i3-battery-popup -n -L 20 -t 1m"
-exec --no-startup-id redshift -r
+exec --no-startup-id redshift-gtk
 
 bindsym $mod+d exec rofi -show run
 
