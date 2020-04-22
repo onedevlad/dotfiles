@@ -16,7 +16,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+q kill
 
-hide_edge_borders smart
+hide_edge_borders yes
 
 # Change focus
 bindsym $mod+h focus left
@@ -76,7 +76,7 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8  Postman"
 set $ws9 "9  Chats"
-set $ws10 "10  Music"
+set $ws10 "10 🎧 Music"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -163,7 +163,7 @@ bar {
   status_command i3blocks -c ~/.config/i3/i3blocks.conf
   position bottom
   strip_workspace_numbers yes
-  height 18
+  #height 18
   bindsym button4 nop
   bindsym button5 nop
   tray_output LVDS-1
@@ -200,7 +200,9 @@ exec --no-startup-id xset -b # Disables system bell
 exec --no-startup-id xinput set-prop "ETPS/2 Elantech Touchpad" "libinput Natural Scrolling Enabled" 1
 exec --no-startup-id nm-applet
 exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/while\ we\ sleep.png
-exec --no-startup-id compton -f
+exec_always --no-startup-id synclient VertScrollDelta=-78
+exec_always --no-startup-id synclient MaxTapTime=0
+exec --no-startup-id compton
 exec --no-startup-id "i3-battery-popup -n -L 20 -t 1m"
 exec --no-startup-id redshift-gtk
 
@@ -210,7 +212,7 @@ set $mode_sys " SYSTEM"
 mode $mode_sys {
   bindsym j exec light -U 2
   bindsym k exec light -A 2
-  bindsym l exec ~/.config/i3/lock/locker.sh; mode "default"
+  bindsym l exec --no-startup-id gnome-screensaver-command --lock; mode "default"
   bindsym s exec systemctl poweroff
   bindsym r exec systemctl reboot
   bindsym z exec systemctl suspend; mode "default"

@@ -7,6 +7,9 @@
 !.gitconfig
 !.gitignore
 !.vimrc
+!.vim/config
 !.tmux.conf
+!.lesskey
+!.ghci
 !.tmux/plugins/tmux-powerline/themes/theme.sh
 !.tmux-powerlinerc
