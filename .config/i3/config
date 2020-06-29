@@ -157,6 +157,10 @@ client.focused_inactive $base02 $base02 $base03 $base0F
 client.unfocused        $base02 $base02 $base03 $base0F
 client.urgent           $base02 $base08 $base00 $base0F
 
+
+for_window [class="^.*terminal*"] border pixel 1
+new_window 1pixel
+
 # Bar
 bar {
   font pango: System San Francisco Display, FontAwesome 10
@@ -210,8 +214,8 @@ bindsym $mod+d exec rofi -show run
 
 set $mode_sys " SYSTEM"
 mode $mode_sys {
-  bindsym j exec light -U 2
-  bindsym k exec light -A 2
+  bindsym j exec light -U 1
+  bindsym k exec light -A 1
   bindsym l exec --no-startup-id gnome-screensaver-command --lock; mode "default"
   bindsym s exec systemctl poweroff
   bindsym r exec systemctl reboot

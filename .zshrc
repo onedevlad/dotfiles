@@ -107,6 +107,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 # Remove delay on vi-mode toggle
 export KEYTIMEOUT=1
 
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 # Not to be disturbed by Ctrl-S ctrl-Q in terminals:
 stty -ixon
 

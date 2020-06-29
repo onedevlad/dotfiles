@@ -1,3 +1,10 @@
+" Airline
+let g:airline#extensions#tabline#enabled = 0
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#coc#enabled = 1
+let g:airline#extensions#branch#enabled = 0
+
+
 " Buffergator
 let g:buffergator_viewport_split_policy = "B"
 let g:buffergator_sort_regime = "mru"
@@ -100,6 +107,7 @@ hi PmenuSel ctermfg=NONE ctermbg=24 cterm=NONE guifg=NONE guibg=#204a87 gui=NONE
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gt :call CocAction('jumpDefinition', 'vsplit')<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
@@ -180,8 +188,7 @@ let g:fzf_action = { 'ctrl-a': 'vsplit' }
 nmap <leader><tab> <plug>(fzf-maps-n)
 nnoremap <leader>p :Files<CR>
 nnoremap <leader>a :execute 'Ag ' . input('Ag/')<CR>
-" let g:fzf_layout = { 'down': '~40%' }
-let g:fzf_layout = { 'window': 'vs' }
+let g:fzf_layout = { 'down': '~40%' }
 
 
 

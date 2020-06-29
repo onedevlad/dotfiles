@@ -3,6 +3,8 @@
 	email = vlad.trishch@gmail.com
 [core]
 	editor = vim
+	autocrlf = false
+
 [color]
 	ui = auto
 [alias]

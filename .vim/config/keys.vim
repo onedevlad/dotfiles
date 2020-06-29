@@ -24,8 +24,20 @@ nnoremap <C-Right> :exe "vertical resize +2"<CR>
 nnoremap <C-Up> :exe "resize -2"<CR>
 nnoremap <C-Down> :exe "resize +2"<CR>
 
+
 " Allows you to enter sudo pass and save the file when you forgot to open your file with sudo
 cmap w!! %!sudo tee > /dev/null %
+
+" Map :q to :bd -- deletes buffer upon exit
+" cnoreabbrev q bd
+
+" Open new splits
+nmap <silent> <leader>v :vs<CR>
+nmap <silent> <leader>h :sp<CR>
+
+nnoremap <C-n> :BuffergatorMruCyclePrev<CR>
+nnoremap <C-p> :BuffergatorMruCycleNext<CR>
+nnoremap <C-b> :BuffergatorOpen<CR>
 
 " Saving files with `CTRL-S`
 nnoremap <silent> <C-S> :<C-u>Update<CR>

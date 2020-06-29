@@ -30,7 +30,7 @@ set cmdheight=1
 set splitbelow splitright
 
 if has('persistent_undo')
-  silent !mkdir ~/.vim/backups > /dev/null 2>&1
-  set undodir=~/.vim/backups
+  silent !mkdir /tmp/vim > /dev/null 2>&1
+  set undodir=/tmp/vim
   set undofile
 endif
