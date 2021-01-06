@@ -1,23 +1,36 @@
 " Airline
 let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#bufferline#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#coc#enabled = 1
 let g:airline#extensions#branch#enabled = 0
 
 
+
 " Buffergator
 let g:buffergator_viewport_split_policy = "B"
 let g:buffergator_sort_regime = "mru"
+nnoremap <C-n> :BuffergatorMruCyclePrev<CR>
+nnoremap <C-p> :BuffergatorMruCycleNext<CR>
+nnoremap <C-b> :BuffergatorOpen<CR>
 
 
 
 " NERDTree
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
 let NERDTreeMinimalUI = 1
-nmap <C-\> :NERDTreeFind<CR>
+nmap <C-/> :NERDTreeFind<CR>
 nmap <silent> <leader><leader> :NERDTreeToggle<CR>
 let g:NERDTreeChDirMode = 2
-let NERDTreeIgnore = ['\.js$', '\.map$']
+" let NERDTreeIgnore = ['\.js$', '\.map$']
+
+" Startify
+autocmd VimEnter *
+  \   if !argc()
+  \ |   Startify
+  \ |   NERDTree
+  \ |   wincmd w
+  \ | endif
 
 
 
@@ -35,7 +48,7 @@ xmap <silent> ie <Plug>CamelCaseMotion_ie
 
 
 
-"VIM-commentary
+" VIM-commentary
 autocmd FileType vue setlocal commentstring=//\ %s
 
 
@@ -111,12 +124,25 @@ nmap <silent> gt :call CocAction('jumpDefinition', 'vsplit')<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nmap <silent> gj <Plug>(coc-diagnostic-next-error)
-nmap <silent> gk <Plug>(coc-diagnostic-prev-error)
+nmap <silent> gj <Plug>(coc-diagnostic-next)
+nmap <silent> gk <Plug>(coc-diagnostic-prev)
+nmap <silent> gf :CocCommand eslint.executeAutofix<CR>
+
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
 
 " coc extensions
 let g:coc_global_extensions = [
   \ 'coc-tslint-plugin',
+  \ 'coc-eslint',
   \ 'coc-tsserver',
   \ 'coc-emmet',
   \ 'coc-css',
@@ -141,7 +167,7 @@ omap / <Plug>(easymotion-tn)
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
-" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+" These `n` & `N` mappings are optional. You do not have to map `n` & `N` to EasyMotion.
 " Without these mappings, `n` & `N` works fine. (These mappings just provide
 " different highlight method and have some other features )
 map n <Plug>(easymotion-next)
@@ -166,29 +192,41 @@ noremap <silent> <Leader>m :MaximizerToggle!<CR>
 
 
 " ALE
-let g:ale_enabled = 0
-let b:ale_linter_aliases = ['javascript', 'vue']
-let g:airline#extensions#ale#enabled = 1
-let g:ale_lint_on_insert_leave = 0
-let g:ale_lint_on_text_change = 'never'
-let g:ale_lint_on_filetype_changed = 0
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_save = 0
-let g:ale_sign_error = '✖'
-let g:ale_sign_warning = '!'
-let g:ale_sign_column_always = 0
-nnoremap <leader>ll :ALEToggle<CR>:ALELint<CR>
-nmap <leader>lj :ALENext<cr>
-nmap <leader>lk :ALEPrevious<cr>
+" let g:ale_enabled = 0
+" let b:ale_linter_aliases = ['javascript', 'vue']
+" let g:airline#extensions#ale#enabled = 1
+" let g:ale_lint_on_insert_leave = 0
+" let g:ale_lint_on_text_change = 'never'
+" let g:ale_lint_on_filetype_changed = 0
+" let g:ale_lint_on_enter = 0
+" let g:ale_lint_on_save = 0
+" let g:ale_sign_error = '✖'
+" let g:ale_sign_warning = '!'
+" let g:ale_sign_column_always = 0
+" nnoremap <leader>ll :ALEToggle<CR>:ALELint<CR>
+" nmap <leader>lj :ALENext<cr>
+" nmap <leader>lk :ALEPrevious<cr>
 
 
 
 " FZF
-let g:fzf_action = { 'ctrl-a': 'vsplit' }
+" An action can be a reference to a function that processes selected lines
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
+let g:fzf_action = {
+  \ 'ctrl-a': 'vsplit',
+  \ 'ctrl-z': 'split',
+  \ 'ctrl-q': function('s:build_quickfix_list') }
 nmap <leader><tab> <plug>(fzf-maps-n)
-nnoremap <leader>p :Files<CR>
+nnoremap <silent> <leader>f :Files<CR>
 nnoremap <leader>a :execute 'Ag ' . input('Ag/')<CR>
-let g:fzf_layout = { 'down': '~40%' }
+let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
+" let g:fzf_layout = { 'down': '~41%' }
+let g:fzf_preview_window = [ 'right:50%', 'ctrl-/' ]
 
 
 

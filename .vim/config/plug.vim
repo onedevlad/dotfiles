@@ -1,8 +1,10 @@
 call plug#begin('~/.vim/plugged')
 
 " Visual
+Plug 'mhinz/vim-startify'
 Plug 'sickill/vim-monokai'
 Plug 'vim-airline/vim-airline'
+Plug 'bling/vim-bufferline'
 Plug 'szw/vim-maximizer'
 Plug 'luochen1990/rainbow'
 
@@ -27,16 +29,19 @@ Plug 'haya14busa/incsearch-easymotion.vim'
 " Editing
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'mg979/vim-visual-multi'
 
 " IDE
 Plug 'ternjs/tern_for_vim'
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "Syntax
 Plug 'leafgarland/typescript-vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'posva/vim-vue'
+Plug 'LnL7/vim-nix'
+Plug 'jparise/vim-graphql'
 "Plug 'Twinside/vim-haskellConceal'
 call plug#end()
 

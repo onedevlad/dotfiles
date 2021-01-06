@@ -8,7 +8,7 @@ nmap <silent> <leader>ev :e ~/.vim/config<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " Find merge conflict markers
-nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$ )<CR>
+nmap <silent> <leader>c <ESC>/\v^[<=>]{7}( .*\|$ )<CR>
 
 " Unf*ck tmux keybindings highjack
 map [1;5A <C-Up>
@@ -28,16 +28,15 @@ nnoremap <C-Down> :exe "resize +2"<CR>
 " Allows you to enter sudo pass and save the file when you forgot to open your file with sudo
 cmap w!! %!sudo tee > /dev/null %
 
-" Map :q to :bd -- deletes buffer upon exit
-" cnoreabbrev q bd
+
+" Map :x to :bd -- deletes buffer upon exit
+cnoreabbrev x bd
+
 
 " Open new splits
 nmap <silent> <leader>v :vs<CR>
 nmap <silent> <leader>h :sp<CR>
 
-nnoremap <C-n> :BuffergatorMruCyclePrev<CR>
-nnoremap <C-p> :BuffergatorMruCycleNext<CR>
-nnoremap <C-b> :BuffergatorOpen<CR>
 
 " Saving files with `CTRL-S`
 nnoremap <silent> <C-S> :<C-u>Update<CR>

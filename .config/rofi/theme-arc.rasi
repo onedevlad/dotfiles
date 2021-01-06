@@ -37,7 +37,7 @@
 #window {
     background-color: @background;
     border:           1;
-    padding:          400;
+    padding:          500;
     opacity: 30;
 }
 #mainbox {

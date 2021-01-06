@@ -1,0 +1,17 @@
+{
+  "diagnostic.errorSign": "✘",
+  "diagnostic.warningSign": "",
+  "diagnostic.infoSign": "",
+
+  "javascript.showUnused": true,
+  "javascript.validate.enable": true,
+
+  "languageserver": {
+    "haskell": {
+      "command": "hls-wrapper-nix",
+      "args": ["--lsp"],
+      "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
+      "filetypes": ["haskell", "lhaskell"]
+    }
+  }
+}
