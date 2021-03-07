@@ -2,6 +2,7 @@ let mapleader="," " Map <Leader> (\ by default) to comma
 
 " Allow jk to be used instead Esc to switch to NORMAL mode
 inoremap jk <esc>
+xnoremap jk <esc>
 
 " Quick editing and reloading vimrc
 nmap <silent> <leader>ev :e ~/.vim/config<CR>
@@ -31,6 +32,8 @@ cmap w!! %!sudo tee > /dev/null %
 
 " Map :x to :bd -- deletes buffer upon exit
 cnoreabbrev x bd
+
+nmap <leader>n :vnew<CR>
 
 
 " Open new splits

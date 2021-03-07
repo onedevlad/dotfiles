@@ -105,7 +105,9 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Remove delay on vi-mode toggle
-export KEYTIMEOUT=1
+export KEYTIMEOUT=10
+export VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+bindkey -M viins 'jk' vi-cmd-mode
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 # Not to be disturbed by Ctrl-S ctrl-Q in terminals:
