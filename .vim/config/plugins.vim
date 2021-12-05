@@ -135,10 +135,11 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gi :CocCommand fzf-preview.CocDefinition<CR>
 nmap <silent> gt :call CocAction('jumpDefinition', 'vsplit')<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+" nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr :CocCommand fzf-preview.CocReferences<CR>
 nmap <silent> gj <Plug>(coc-diagnostic-next)
 nmap <silent> gk <Plug>(coc-diagnostic-prev)
 nmap <silent> gf :CocCommand eslint.executeAutofix<CR>
@@ -160,6 +161,7 @@ let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-yank',
   \ 'coc-prettier',
+  \ 'coc-fzf-preview',
   \ ]
 
 
@@ -217,7 +219,14 @@ nmap <leader><tab> <plug>(fzf-maps-n)
 nnoremap <silent> <leader>f :Files<CR>
 " nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>a :execute 'Ag ' . input('Ag/')<CR>
-let $FZF_DEFAULT_OPTS = '--bind ctrl-s:select-all'
+let $FZF_DEFAULT_OPTS="--preview-window 'right:57%' --preview 'bat --style=numbers --line-range :300 {}'
+\ --bind ctrl-y:preview-up,ctrl-e:preview-down,
+\ctrl-b:preview-page-up,ctrl-f:preview-page-down,
+\ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down,
+\ctrl-s:select-all,
+\shift-up:preview-top,shift-down:preview-bottom,
+\alt-up:half-page-up,alt-down:half-page-down"
+
 " let g:fzf_layout = { 'down': '~41%' }
 let g:fzf_preview_window = [ 'right:50%', 'ctrl-/' ]
 

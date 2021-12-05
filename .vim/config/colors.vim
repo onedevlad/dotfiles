@@ -22,6 +22,6 @@ hi Normal      guifg=#f8f8f2 guibg=#272822 gui=NONE
 hi NonText     guifg=#49483e guibg=#272822 gui=NONE
 hi CursorLine  guifg=NONE    guibg=#3c3d37 gui=NONE
 hi ColorColumn guifg=NONE    guibg=#3c3d37 gui=NONE
-hi Pmenu       guifg=#eaeaea guibg=#333333 gui=NONE
-hi PmenuSel    guifg=NONE    guibg=#49483e gui=NONE
+hi Pmenu       guifg=#eaeaea guibg=#3c3d37 gui=NONE
+hi PmenuSel    guifg=#272822 guibg=#e6db74 gui=NONE
 hi Conceal     guifg=#75715e guibg=NONE    gui=NONE

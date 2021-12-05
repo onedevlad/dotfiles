@@ -72,7 +72,7 @@ nmap P :pu<CR>
 " ****** TEXT EDITING *****
 
 " Allow to copy/paste to system clipboard
-set clipboard+=unnamedplus
+set clipboard=unnamedplus
 noremap <Leader>y "+y
 noremap <Leader>p "+p
 map <C-v> "+p

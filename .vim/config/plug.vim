@@ -32,7 +32,7 @@ Plug 'tpope/vim-surround'
 Plug 'mg979/vim-visual-multi'
 
 " IDE
-Plug 'ternjs/tern_for_vim'
+" Plug 'ternjs/tern_for_vim'
 " Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
