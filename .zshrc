@@ -103,8 +103,9 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias vim=nvim
 
-# Remove delay on vi-mode toggle
+# Remove delay on vi-mode toggle (N*10ms)
 export KEYTIMEOUT=10
 export VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 bindkey -M viins 'jk' vi-cmd-mode
@@ -119,7 +120,9 @@ export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # Haskell
-export PATH=$PATH:$HOME/.local/bin
+export GHCUP_INSTALL_BASE_PREFIX=$HOME
+export PATH=$PATH:$HOME/.cabal/bin
+export PATH=$PATH:$GHCUP_INSTALL_BASE_PREFIX/.ghcup/bin
 
 # eval "$(thefuck --alias)"
 
@@ -131,6 +134,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 # export ANDROID_NDK=~/Android/Sdk/ndk/20.0.5594570
 
 bindkey '^ ' autosuggest-accept
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#606060'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

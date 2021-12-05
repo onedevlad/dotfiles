@@ -2,7 +2,7 @@ let mapleader="," " Map <Leader> (\ by default) to comma
 
 " Allow jk to be used instead Esc to switch to NORMAL mode
 inoremap jk <esc>
-xnoremap jk <esc>
+" xnoremap jk <esc>
 
 " Quick editing and reloading vimrc
 nmap <silent> <leader>ev :e ~/.vim/config<CR>
@@ -22,8 +22,8 @@ nnoremap <C-Left> :exe "vertical resize -2"<CR>
 nnoremap <C-Right> :exe "vertical resize +2"<CR>
 
 " Resize hsplit
-nnoremap <C-Up> :exe "resize -2"<CR>
-nnoremap <C-Down> :exe "resize +2"<CR>
+" nnoremap <C-Up> :exe "resize -2"<CR>
+" nnoremap <C-Down> :exe "resize +2"<CR>
 
 
 " Allows you to enter sudo pass and save the file when you forgot to open your file with sudo
@@ -32,6 +32,9 @@ cmap w!! %!sudo tee > /dev/null %
 
 " Map :x to :bd -- deletes buffer upon exit
 cnoreabbrev x bd
+
+nmap <silent> - :bprev<CR>
+nmap <silent> = :bnext<CR>
 
 nmap <leader>n :vnew<CR>
 
@@ -69,7 +72,7 @@ nmap P :pu<CR>
 " ****** TEXT EDITING *****
 
 " Allow to copy/paste to system clipboard
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 noremap <Leader>y "+y
 noremap <Leader>p "+p
 map <C-v> "+p

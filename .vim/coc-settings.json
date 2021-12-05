@@ -3,15 +3,13 @@
   "diagnostic.warningSign": "",
   "diagnostic.infoSign": "",
 
+  "tsserver.log": "verbose",
+  "tsserver.trace.server": "verbose",
+
   "javascript.showUnused": true,
   "javascript.validate.enable": true,
+  "javascript.updateImportsOnFileMove.enable": false,
 
-  "languageserver": {
-    "haskell": {
-      "command": "hls-wrapper-nix",
-      "args": ["--lsp"],
-      "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
-      "filetypes": ["haskell", "lhaskell"]
-    }
-  }
+  "typescript.updateImportsOnFileMove.enable": false,
+  "typescript.suggest.autoImports": true
 }

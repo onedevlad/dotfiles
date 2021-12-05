@@ -41,8 +41,9 @@ Plug 'leafgarland/typescript-vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'posva/vim-vue'
 Plug 'LnL7/vim-nix'
-Plug 'jparise/vim-graphql'
 "Plug 'Twinside/vim-haskellConceal'
+
+
 call plug#end()
 
 source ~/.vim/config/plugins.vim

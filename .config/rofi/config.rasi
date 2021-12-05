@@ -1,19 +1,19 @@
 configuration {
-	width: 100;
-	lines: 7;
-	columns: 1;
-	font: "mono 12";
-	location: 0;
-	yoffset: 0;
-	xoffset: 0;
-	eh: 1;
-	cycle: true;
-	hide-scrollbar: true;
-	theme: "theme-arc";
-  kb-remove-to-eol: "Control+q";
-  kb-accept-entry: "Control+o,Alt+o,Return,KP_Enter";
-  kb-row-up: "Up,Control+k,Alt+k";
-  kb-row-down: "Down,Control+j,Alt+j";
+  location: 0;
+  terminal: "allacrity";
+  theme: "theme-arc";
+  font: "mono 12";
+  cycle: true;
+/* lines: 7; */
+/* columns: 1; */
+/* yoffset: 0; */
+/* xoffset: 0; */
+/* eh: 1; */
+/* hide-scrollbar: true; */
+/* kb-remove-to-eol: "Control+q"; */
+/* kb-accept-entry: "Control+o,Alt+o,Return,KP_Enter"; */
+/* kb-row-up: "Up,Control+k,Alt+k"; */
+/* kb-row-down: "Down,Control+j,Alt+j"; */
 /*	bw: 1;*/
 /*	fixed-num-lines: true;*/
 /*	modi: "window,run,ssh";*/

@@ -204,9 +204,7 @@ exec --no-startup-id rhythmbox
 exec --no-startup-id telegram-desktop
 exec --no-startup-id xset -b # Disables system bell
 
-exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
-exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
-exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Accel Speed" 0.6
+# exec --no-startup-id "~/.touchpad/setup.sh"
 
 exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/while\ we\ sleep.png
 exec --no-startup-id dunst
@@ -221,7 +219,7 @@ set $mode_sys " SYSTEM"
 mode $mode_sys {
   bindsym j exec light -U 1
   bindsym k exec light -A 1
-  bindsym l exec --no-startup-id i3lock-fancy; mode "default"
+  bindsym l exec --no-startup-id xlock -mode blank -usefirst; mode "default"
   bindsym s exec systemctl poweroff
   bindsym r exec systemctl reboot
   bindsym z exec systemctl suspend; mode "default"

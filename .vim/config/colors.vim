@@ -24,3 +24,4 @@ hi CursorLine  guifg=NONE    guibg=#3c3d37 gui=NONE
 hi ColorColumn guifg=NONE    guibg=#3c3d37 gui=NONE
 hi Pmenu       guifg=#eaeaea guibg=#333333 gui=NONE
 hi PmenuSel    guifg=NONE    guibg=#49483e gui=NONE
+hi Conceal     guifg=#75715e guibg=NONE    gui=NONE

@@ -8,7 +8,6 @@ set nobackup
 set nowb
 set noswapfile
 
-set number    " Show line numbers
 set showmatch " Show matching parenthesis
 set smartcase " Ignore case if search pattern is all lowercase, case-sensitive otherwise
 set ignorecase " Ignore search term case
@@ -19,6 +18,12 @@ set incsearch " Show search matches as you type
 set lazyredraw
 set cursorline
 set showcmd
+
+" Hybrid line numbers
+set number
+set relativenumber
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertLeave * :set relativenumber 
 
 " Set tab size to 2
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab

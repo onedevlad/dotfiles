@@ -91,6 +91,16 @@ endfunction
 nnoremap <expr> <space> ScrollPopUp(1) ? '<esc>' : '<space>'
 nnoremap <expr> <C-@> ScrollPopUp(0) ? '<esc>' : '<C-@>'
 
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
+
+
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -108,7 +118,7 @@ function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
-    call CocAction('doHover')
+    call CocActionAsync('doHover')
   endif
 endfunction
 
@@ -117,6 +127,11 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 hi Pmenu ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#64666d gui=NONE
 hi PmenuSel ctermfg=NONE ctermbg=24 cterm=NONE guifg=NONE guibg=#204a87 gui=NONE
+
+
+" Use Enter to apply selected option in the tab-compeletion list
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -131,12 +146,7 @@ nmap <silent> gf :CocCommand eslint.executeAutofix<CR>
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
-if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
+set signcolumn=number
 
 
 " coc extensions
@@ -191,24 +201,6 @@ noremap <silent> <Leader>m :MaximizerToggle!<CR>
 
 
 
-" ALE
-" let g:ale_enabled = 0
-" let b:ale_linter_aliases = ['javascript', 'vue']
-" let g:airline#extensions#ale#enabled = 1
-" let g:ale_lint_on_insert_leave = 0
-" let g:ale_lint_on_text_change = 'never'
-" let g:ale_lint_on_filetype_changed = 0
-" let g:ale_lint_on_enter = 0
-" let g:ale_lint_on_save = 0
-" let g:ale_sign_error = '✖'
-" let g:ale_sign_warning = '!'
-" let g:ale_sign_column_always = 0
-" nnoremap <leader>ll :ALEToggle<CR>:ALELint<CR>
-" nmap <leader>lj :ALENext<cr>
-" nmap <leader>lk :ALEPrevious<cr>
-
-
-
 " FZF
 " An action can be a reference to a function that processes selected lines
 function! s:build_quickfix_list(lines)
@@ -223,8 +215,9 @@ let g:fzf_action = {
   \ 'ctrl-q': function('s:build_quickfix_list') }
 nmap <leader><tab> <plug>(fzf-maps-n)
 nnoremap <silent> <leader>f :Files<CR>
+" nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>a :execute 'Ag ' . input('Ag/')<CR>
-let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
+let $FZF_DEFAULT_OPTS = '--bind ctrl-s:select-all'
 " let g:fzf_layout = { 'down': '~41%' }
 let g:fzf_preview_window = [ 'right:50%', 'ctrl-/' ]
 

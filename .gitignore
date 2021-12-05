@@ -2,6 +2,7 @@
 
 !.config/i3
 !.config/rofi
+!.config/nvim
 !.fonts
 !.bashrc
 !.gitconfig
