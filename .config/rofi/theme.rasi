@@ -1,0 +1,73 @@
+// See `man rofi-theme`
+
+* {
+  bg: #1e1e1e;
+  bg-transparent: #000000cc;
+  fg: #d4d4d4;
+  light-blue: #9cdcfe;
+  grey: #808080;
+
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background-color: inherit;
+  text-color: inherit;
+}
+
+#window {
+  width: 100%;
+  height: 100%;
+  padding: 30%;
+  background-color: @bg-transparent;
+}
+
+#mainbox {
+  background-color: @bg;
+}
+
+#inputbar {
+  padding: 3px;
+  background-color: @bg;
+  children: [prompt,textbox-prompt-colon,entry,case-indicator];
+}
+
+#prompt {
+  text-color: @grey;
+}
+
+#textbox-prompt-colon {
+  expand:     false;
+  str:        ":";
+  margin:     0px 0.3em 0em 0em ;
+  text-color: @grey;
+  text-color: @fg;
+}
+
+#entry {
+  text-color: @fg;
+}
+
+#listview {
+  scrollbar: true;
+  scrollbar-width: 4px;
+}
+
+#scrollbar {
+  enabled: true;
+  handle-width: 4px;
+  handle-color: #3e3e3e;
+}
+
+#element-icon {
+  margin: 0 10px 0 0;
+}
+
+#element {
+  padding: 0 5px 0 5px;
+  text-color: @grey;
+}
+
+#element.selected {
+  background-color: @light-blue;
+  text-color: @bg;
+}

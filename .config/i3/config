@@ -213,7 +213,8 @@ exec --no-startup-id "i3-battery-popup -n -L 20 -t 1m"
 exec --no-startup-id redshift -l 48:24
 exec --no-startup-id nm-applet
 
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec rofi -show drun
+# bindsym $mod+w exec rofi -show window
 
 set $mode_sys " SYSTEM"
 mode $mode_sys {

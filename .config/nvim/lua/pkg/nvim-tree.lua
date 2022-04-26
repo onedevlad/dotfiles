@@ -16,9 +16,6 @@ vim.api.nvim_set_keymap('n', '<Leader><Leader>', ':NvimTreeToggle<CR>', { norema
 
 require('nvim-tree').setup({
   hijack_cursor = true,
-  update_focused_file = {
-    enable = true,
-  },
   view = {
     mappings = {
       custom_only = false,
@@ -27,6 +24,7 @@ require('nvim-tree').setup({
         { key = "C", action = 'cd' },
         { key = "p", action = "parent_node" },
         { key = "P", action = "paste" },
+        { key = "i", action = "split" },
         { key = "s", action = "vsplit" },
       },
     }
