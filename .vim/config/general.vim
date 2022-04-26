@@ -25,6 +25,8 @@ set relativenumber
 autocmd InsertEnter * :set norelativenumber
 autocmd InsertLeave * :set relativenumber 
 
+set re=2
+
 " Set tab size to 2
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 

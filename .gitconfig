@@ -8,7 +8,7 @@
 [color]
 	ui = auto
 [alias]
-	st = status -s
+	st = status
 	ci = commit
 	br = branch
 	co = checkout

@@ -19,7 +19,7 @@ hi LineNr      guifg=#90908a guibg=#272822 gui=NONE
 hi SignColumn  guifg=#FEE715 guibg=#272822 gui=NONE
 hi Search      guifg=#f8f8f2 guibg=#204a87 gui=NONE
 hi Normal      guifg=#f8f8f2 guibg=#272822 gui=NONE
-hi NonText     guifg=#49483e guibg=#272822 gui=NONE
+hi NonText     guifg=#49483e guibg=NONE    gui=NONE
 hi CursorLine  guifg=NONE    guibg=#3c3d37 gui=NONE
 hi ColorColumn guifg=NONE    guibg=#3c3d37 gui=NONE
 hi Pmenu       guifg=#eaeaea guibg=#3c3d37 gui=NONE

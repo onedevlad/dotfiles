@@ -30,8 +30,9 @@ nnoremap <C-Right> :exe "vertical resize +2"<CR>
 cmap w!! %!sudo tee > /dev/null %
 
 
-" Map :x to :bd -- deletes buffer upon exit
+" Map :q to :bd -- deletes buffer upon exit
 cnoreabbrev x bd
+" cnoreabbrev a q
 
 nmap <silent> - :bprev<CR>
 nmap <silent> = :bnext<CR>

@@ -19,7 +19,7 @@ nnoremap <C-b> :BuffergatorOpen<CR>
 " NERDTree
 " autocmd vimenter * NERDTree
 let NERDTreeMinimalUI = 1
-nmap <C-/> :NERDTreeFind<CR>
+nmap <C-m> :NERDTreeFind<CR>
 nmap <silent> <leader><leader> :NERDTreeToggle<CR>
 let g:NERDTreeChDirMode = 2
 " let NERDTreeIgnore = ['\.js$', '\.map$']
@@ -88,9 +88,6 @@ function! ScrollPopUp(down)
   return 1
 endfunction
 
-nnoremap <expr> <space> ScrollPopUp(1) ? '<esc>' : '<space>'
-nnoremap <expr> <C-@> ScrollPopUp(0) ? '<esc>' : '<C-@>'
-
 if has('nvim-0.4.0') || has('patch-8.2.0750')
   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
   nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
@@ -98,6 +95,9 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
   vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+else
+  nnoremap <expr> <space> ScrollPopUp(1) ? '<esc>' : '<space>'
+  nnoremap <expr> <C-@> ScrollPopUp(0) ? '<esc>' : '<C-@>'
 endif
 
 
@@ -123,7 +123,7 @@ function! s:show_documentation()
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 hi Pmenu ctermfg=NONE ctermbg=236 cterm=NONE guifg=NONE guibg=#64666d gui=NONE
 hi PmenuSel ctermfg=NONE ctermbg=24 cterm=NONE guifg=NONE guibg=#204a87 gui=NONE

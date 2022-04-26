@@ -39,7 +39,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Syntax
 Plug 'leafgarland/typescript-vim'
 Plug 'digitaltoad/vim-pug'
-Plug 'posva/vim-vue'
+" Plug 'posva/vim-vue'
 Plug 'LnL7/vim-nix'
 "Plug 'Twinside/vim-haskellConceal'
 

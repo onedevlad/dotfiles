@@ -1,7 +1,6 @@
 configuration {
   location: 0;
   terminal: "allacrity";
-  theme: "theme-arc";
   font: "mono 12";
   cycle: true;
 /* lines: 7; */
@@ -142,3 +141,5 @@ configuration {
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
 }
+
+@theme "theme-arc"
