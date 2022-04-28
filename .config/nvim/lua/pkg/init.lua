@@ -1,5 +1,5 @@
-require('pkg.nvim-tree')
 require('pkg.lualine')
+require('pkg.nvim-tree')
 require('pkg.easymotion')
 require('pkg.telescope')
 require('pkg.sexyscroller')

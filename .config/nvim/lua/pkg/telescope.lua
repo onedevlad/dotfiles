@@ -15,7 +15,7 @@ telescope.setup({
     prompt_prefix = " ",
     selection_caret = " ",
     -- path_display = { "smart" },
-    file_ignore_patterns = {"node_modules"},
+    file_ignore_patterns = {"node_modules", "*.lock"},
 
     mappings = {
       i = {
@@ -83,9 +83,9 @@ telescope.setup({
     },
   },
   pickers = {
-    -- buffers = {
-    --   theme = "dropdown",
-    -- }
+    buffers = {
+      initial_mode = 'normal',
+    },
   },
   extensions = {
     fzf = {

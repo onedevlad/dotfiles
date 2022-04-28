@@ -62,10 +62,12 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-buffer"
   use "L3MON4D3/LuaSnip"
   use "hrsh7th/cmp-nvim-lsp"
+  use "jose-elias-alvarez/null-ls.nvim"
 
   use "neovim/nvim-lspconfig"
   use "williamboman/nvim-lsp-installer"
   use "numToStr/Comment.nvim"
+  use "kevinhwang91/nvim-bqf"
 
   -- Treesitter
   use {

@@ -1,5 +1,9 @@
+vim.g.mapleader = ','
+
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
+
+keymap('n', '<Leader><Leader>', ':NvimTreeToggle<CR>', opts)
 
 -- Allow jk to be used instead of Esc to switch to NORMAL mode
 keymap('i', 'jk', '<esc>', opts)

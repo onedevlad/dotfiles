@@ -1,5 +1,5 @@
 require('generic')
+require('keys')
 require('plugins')
 require('pkg')
-require('keys')
 require('ui')

@@ -5,3 +5,4 @@ end
 
 require("pkg.lsp.lsp-installer")
 require("pkg.lsp.handlers").setup()
+require("pkg.lsp.null-ls")

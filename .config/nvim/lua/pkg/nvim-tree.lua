@@ -12,13 +12,11 @@ vim.cmd [[
 vim.g['nvim_tree_add_trailing'] = 1
 vim.g['nvim_tree_special_files'] = {}
 
-vim.api.nvim_set_keymap('n', '<Leader><Leader>', ':NvimTreeToggle<CR>', { noremap = true })
-
 require('nvim-tree').setup({
   hijack_cursor = true,
   view = {
     mappings = {
-      custom_only = false,
+      -- custom_only = false,
       list = {
         { key = "u", action = 'dir_up' },
         { key = "C", action = 'cd' },
@@ -26,6 +24,7 @@ require('nvim-tree').setup({
         { key = "P", action = "paste" },
         { key = "i", action = "split" },
         { key = "s", action = "vsplit" },
+        { key = "F", action = "toggle_dotfiles" },
       },
     }
   },
