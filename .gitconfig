@@ -2,7 +2,7 @@
 	name = Vlad Trishch
 	email = vlad.trishch@gmail.com
 [core]
-	editor = vim
+	editor = nvim
 	autocrlf = false
 
 [color]
