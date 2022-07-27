@@ -1,17 +1,3 @@
-vim.cmd [[
-  let g:nvim_tree_icons = {
-  \ 'git': {
-  \   'untracked': "◌",
-  \   'ignored': ' ',
-  \ },
-  \ 'folders': 1,
-  \ 'files': 1,
-  \ 'folder_arrows': 0,
-  \ }
-]]
-vim.g['nvim_tree_add_trailing'] = 1
-vim.g['nvim_tree_special_files'] = {}
-
 require('nvim-tree').setup({
   hijack_cursor = true,
   hijack_netrw = true,
@@ -47,5 +33,9 @@ require('nvim-tree').setup({
       warning = "",
       error = "",
     },
+  },
+  renderer = {
+    add_trailing = true,
+    special_files = {},
   },
 })
