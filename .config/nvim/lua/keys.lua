@@ -3,7 +3,11 @@ vim.g.mapleader = ','
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
-keymap('n', '<Leader><Leader>', ':NvimTreeToggle<CR>', opts)
+vim.cmd [[
+  autocmd VimEnter * map <leader><leader> :NvimTreeToggle<CR>
+]]
+
+keymap('', '/', '<Plug>(easymotion-sn)', {})
 
 -- Allow jk to be used instead of Esc to switch to NORMAL mode
 keymap('i', 'jk', '<esc>', opts)
@@ -52,5 +56,5 @@ keymap('v', 'x', '"_x', opts)
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
-keymap('n', '<Leader>ev', ':e ~/.config/nvim/new-init.lua<CR>', opts)
-keymap('n', '<Leader>sv', ':luafile ~/.config/nvim/new-init.lua<CR>', opts)
+keymap('n', '<Leader>ev', ':e ~/.config/nvim/init.lua<CR>', opts)
+keymap('n', '<Leader>sv', ':luafile ~/.config/nvim/init.lua<CR>', opts)
