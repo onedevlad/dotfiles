@@ -2,14 +2,13 @@ vim.opt.termguicolors = true
 
 vim.cmd "colorscheme darkplus"
 
-local C = require('darkplus.palette')
-local util = require('darkplus.util')
+local hl = vim.api.nvim_set_hl
+local c = require('darkplus.palette')
 
-util.initialise({
-  Whitespace = { fg = C.dark_gray },
-  Visual = { bg = C.dark_gray },
-  VertSplit = { fg = C.dark_gray, bg = C.dark_gray },
-  BufferLineFill = { bg = C.bg },
-  NvimTreeNormal = { bg = C.bg },
-  NvimTreeGitNew = { fg = C.fg }
-})
+hl(0, "Whitespace", { fg = c.dark_gray })
+hl(0, "Visual", { bg = c.dark_gray })
+hl(0, "VertSplit", { fg = c.dark_gray, bg = c.alt_bg })
+
+hl(0, "NvimTreeNormal", { bg = c.bg })
+hl(0, "NvimTreeGitNew", { fg = c.fg })
+hl(0, "lualine_c_inactive", { fg = c.context, bg = c.bg })
