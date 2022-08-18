@@ -49,6 +49,8 @@ return packer.startup(function(use)
   use 'vijaymarupudi/nvim-fzf'
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
+  use "tpope/vim-fugitive"
+  use 'lewis6991/gitsigns.nvim'
   use {
     'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
