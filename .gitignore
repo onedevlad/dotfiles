@@ -14,16 +14,16 @@
 !.config/nvim/**
 !.config/dunst/
 !.config/dunst/**
+!Pictures/Wallpapers
+!Pictures/Wallpapers/**
 
 
 !.fonts
 !.bashrc
 !.gitconfig
 !.gitignore
-!.vimrc
 !.vim/
 !.vim/config
-!.vim/coc-settings.json
 !.tmux.conf
 !.lesskey
 !.ghci
