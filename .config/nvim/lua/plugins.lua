@@ -58,6 +58,7 @@ return packer.startup(function(use)
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'bkad/CamelCaseMotion'
+  use 'norcalli/nvim-colorizer.lua'
   -- use "lukas-reineke/indent-blankline.nvim"
 
   use "hrsh7th/nvim-cmp"
