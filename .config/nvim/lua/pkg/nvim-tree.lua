@@ -2,6 +2,12 @@ require('nvim-tree').setup({
   hijack_cursor = true,
   hijack_netrw = true,
   hijack_unnamed_buffer_when_opening = true,
+  respect_buf_cwd = true,
+  update_focused_file = {
+    enable      = false,
+    update_cwd  = false,
+    ignore_list = {}
+  },
   view = {
     mappings = {
       -- custom_only = false,
