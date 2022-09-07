@@ -23,7 +23,7 @@ vim.cmd("set colorcolumn=81")
 vim.opt.list = true
 vim.opt.listchars = "tab:>-,space:·"
 vim.opt.fillchars:append("vert:▕")
-vim.opt.fillchars:append("diff:/")
+vim.opt.fillchars:append("diff: ")
 
 -- Hybrid line numbers
 vim.opt.number = true
