@@ -13,3 +13,7 @@ hl(0, "NvimTreeNormal", { bg = c.bg })
 hl(0, "TelescopeNormal", { bg = c.bg })
 hl(0, "NvimTreeGitNew", { fg = c.fg })
 hl(0, "lualine_c_inactive", { fg = c.context, bg = c.bg })
+
+hl(0, "DiffAdd", { fg = 'NONE', bg = c.green })
+hl(0, "DiffChange", { fg = 'NONE', bg = c.ui_blue })
+hl(0, "DiffDelete", { fg = 'NONE', bg = c.red })

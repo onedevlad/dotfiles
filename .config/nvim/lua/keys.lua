@@ -35,6 +35,7 @@ keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
+-- Move to prev/next buffer
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
@@ -55,6 +56,11 @@ keymap('v', 'x', '"_x', opts)
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+
+keymap("n", '<Leader>dfc', ":DiffviewFileHistory %<CR>", opts)
+keymap("n", '<Leader>dfa', ":DiffviewFileHistory<CR>", opts)
+keymap("n", '<Leader>dfo', ":DiffviewOpen<CR>", opts)
+keymap("n", '<Leader>dfx', ":DiffviewClose<CR>", opts)
 
 keymap('n', '<Leader>ev', ':e ~/.config/nvim/init.lua<CR>', opts)
 keymap('n', '<Leader>sv', ':luafile ~/.config/nvim/init.lua<CR>', opts)
