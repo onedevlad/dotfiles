@@ -1,0 +1,5 @@
+return {
+  settings = {
+    rootMarkers = {"./git/"}
+  },
+}

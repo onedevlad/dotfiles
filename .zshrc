@@ -120,9 +120,10 @@ export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # Haskell
-export GHCUP_INSTALL_BASE_PREFIX=$HOME
-export PATH=$PATH:$HOME/.cabal/bin
-export PATH=$PATH:$GHCUP_INSTALL_BASE_PREFIX/.ghcup/bin
+[ -f "/home/vlad/.ghcup/env" ] && source "/home/vlad/.ghcup/env" # ghcup-env
+# export GHCUP_INSTALL_BASE_PREFIX=$HOME
+# export PATH=$PATH:$HOME/.cabal/bin
+# export PATH=$PATH:$GHCUP_INSTALL_BASE_PREFIX/.ghcup/bin
 
 # eval "$(thefuck --alias)"
 
