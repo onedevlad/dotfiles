@@ -158,6 +158,7 @@ client.unfocused        $base02 $base02 $base03 $base0F
 client.urgent           $base02 $base08 $base00 $base0F
 
 
+for_window [class="^.*"] border none
 for_window [class="^.*terminal*"] border pixel 1
 new_window 1pixel
 
