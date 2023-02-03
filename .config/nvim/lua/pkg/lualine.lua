@@ -6,7 +6,8 @@ require('lualine').setup({
     disabled_filetypes = { 'NvimTree' },
   },
   sections = {
-    lualine_b = {'diagnostics'}
+    lualine_b = {'diagnostics'},
+    lualine_c = { { 'filename', path = 1 } },
   },
   extensions = { 'quickfix' },
 })
