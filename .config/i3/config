@@ -133,30 +133,14 @@ mode $mode_resize {
 }
 bindsym $mod+r mode $mode_resize
 
-set $base00 #101218
-set $base01 #1f222d
-set $base02 #252936
-set $base03 #7780a1
-set $base04 #C0C5CE
-set $base05 #d1d4e0
-set $base06 #C9CCDB
-set $base07 #ffffff
-set $base08 #ee829f
-set $base09 #f99170
-set $base0A #ffefcc
-set $base0B #a5ffe1
-set $base0C #97e0ff
-set $base0D #97bbf7
-set $base0E #c0b7f9
-set $base0F #fcc09e
+# class                 border  bground text    indicator child_border
+client.focused          #264F78 #264F78 #FFFFFF #264F78   #264F78
+client.focused_inactive #1E1E1E #1E1E1E #D4D4D4 #1E1E1E   #1E1E1E
+client.unfocused        #404040 #404040 #D4D4D4 #404040   #404040
+client.urgent           #FF8800 #FF8800 #FFFFFF #FF8800   #FF8800
+client.placeholder      #1E1E1E #1E1E1E #FFFFFF #1E1E1E   #1E1E1E
 
-# Widow Colours
-#                       border  bg      text    indicator
-client.focused          $base01 $base01 $base07 $base0F
-client.focused_inactive $base02 $base02 $base03 $base0F
-client.unfocused        $base02 $base02 $base03 $base0F
-client.urgent           $base02 $base08 $base00 $base0F
-
+client.background       #1E1E1E
 
 for_window [class="^.*"] border none
 for_window [class="^.*terminal*"] border pixel 1
@@ -172,14 +156,15 @@ bar {
   bindsym button4 nop
   bindsym button5 nop
   colors {
-    separator $base03
-    background $base01
-    statusline $base07
-#                      border  bg         text
-    focused_workspace  $base01 $base01    $base07
-    active_workspace   $base01 $base02    $base03
-    inactive_workspace $base01 $base01    $base03
-    urgent_workspace   $base01 $base01    $base08
+    background #222123
+    statusline #FFFFFF
+    separator  #3E3E3E
+
+    focused_workspace  #202123 #202123 #FFFFFF
+    active_workspace   #202123 #202123 #569CD6
+    inactive_workspace #202123 #202123 #808080
+    urgent_workspace   #202123 #202123 #FF8800
+    binding_mode       #94151B #94151B #FFFFFF
   }
 }
 
