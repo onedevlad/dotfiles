@@ -34,7 +34,7 @@ require("lazy").setup({
   "bkad/CamelCaseMotion",
   "norcalli/nvim-colorizer.lua",
   -- "lukas-reineke/indent-blankline.nvim",
-
+  'dnlhc/glance.nvim',
   "hrsh7th/nvim-cmp",
   "hrsh7th/cmp-path",
   "hrsh7th/cmp-buffer",
@@ -46,10 +46,7 @@ require("lazy").setup({
   "numToStr/Comment.nvim",
   "kevinhwang91/nvim-bqf",
 
-  {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-  },
+  { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
   "JoosepAlviste/nvim-ts-context-commentstring",
   "nvim-treesitter/playground"
 })

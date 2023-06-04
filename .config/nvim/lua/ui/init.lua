@@ -19,7 +19,7 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
 -- Can't set from Lua yet
-vim.cmd("set colorcolumn=81")
+vim.cmd("set colorcolumn=80")
 vim.opt.list = true
 vim.opt.listchars = "tab:>-,space:·"
 vim.opt.fillchars:append("vert:▕")

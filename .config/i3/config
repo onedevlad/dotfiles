@@ -134,13 +134,13 @@ mode $mode_resize {
 bindsym $mod+r mode $mode_resize
 
 # class                 border  bground text    indicator child_border
-client.focused          #264F78 #264F78 #FFFFFF #264F78   #264F78
-client.focused_inactive #1E1E1E #1E1E1E #D4D4D4 #1E1E1E   #1E1E1E
-client.unfocused        #404040 #404040 #D4D4D4 #404040   #404040
-client.urgent           #FF8800 #FF8800 #FFFFFF #FF8800   #FF8800
-client.placeholder      #1E1E1E #1E1E1E #FFFFFF #1E1E1E   #1E1E1E
+client.focused          #1E1E1E #1E1E1E #FFFFFF #1E1E1E   #285577
+client.focused_inactive #2D2D2D #2D2D2D #808080 #2D2D2D   #2D2D2D
+client.unfocused        #2D2D2D #2D2D2D #808080 #2D2D2D   #2d2d2d
+client.urgent           #D16969 #D16969 #FFFFFF #D16969   #D16969
+client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 
-client.background       #1E1E1E
+client.background       #FFFFFF
 
 for_window [class="^.*"] border none
 for_window [class="^.*terminal*"] border pixel 1

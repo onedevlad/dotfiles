@@ -3,9 +3,12 @@ vim.g.mapleader = ','
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
 
+-- NvimTree
 vim.cmd [[
   autocmd VimEnter * map <leader><leader> :NvimTreeToggle<CR>
 ]]
+
+keymap('', '<Leader>g', ":NvimTreeFindFile<CR>", {});
 
 keymap('', '/', '<Plug>(easymotion-sn)', {})
 
@@ -27,8 +30,6 @@ keymap('', '<C-j>', '<C-w><Down>', opts)
 keymap('', '<C-l>', '<C-w><Right>', opts)
 keymap('', '<C-h>', '<C-w><Left>', opts)
 
-keymap('n', "<S-q>", ":Bdelete<CR>", opts)
-
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
@@ -38,6 +39,7 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Move to prev/next buffer
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap('n', "<S-q>", ":Bdelete<CR>", opts)
 
 -- Use `P` to put register content on the next line
 keymap('n', 'P', ':pu<CR>', opts)

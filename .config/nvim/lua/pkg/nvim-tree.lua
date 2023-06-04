@@ -9,6 +9,7 @@ require('nvim-tree').setup({
     ignore_list = {}
   },
   view = {
+    signcolumn = "auto",
     mappings = {
       -- custom_only = false,
       list = {
