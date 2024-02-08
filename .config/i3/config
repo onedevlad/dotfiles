@@ -67,15 +67,15 @@ bindsym $mod+space focus mode_toggle
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1  Chrome"
-set $ws2 "2  Terminal"
-set $ws3 "3  FS"
+set $ws1 "1    Chrome"
+set $ws2 "2    Terminal"
+set $ws3 "3    FS"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8  Postman"
-set $ws9 "9  Chats"
+set $ws8 "8    Postman"
+set $ws9 "9    Chats"
 set $ws10 "10 🎧 Music"
 
 # switch to workspace
@@ -173,8 +173,8 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%; e
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%; exec --no-startup-id pkill -RTMIN+2 i3blocks
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle; exec --no-startup-id pkill -RTMIN+2 i3blocks
 
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 2%-
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s +2%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 5%-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s +5%
 
 # Media player controls
 bindcode 179 exec --no-startup-id playerctl previous

@@ -7,6 +7,7 @@
 !.config/alacritty/
 !.config/alacritty/**
 !.config/i3/
+.config/i3/i3blocks
 !.config/i3/**
 !.config/rofi/
 !.config/rofi/**
@@ -16,7 +17,8 @@
 !.config/dunst/**
 !Pictures/Wallpapers
 !Pictures/Wallpapers/**
-
+!docs
+!docs/**
 
 !.fonts
 !.bashrc
@@ -29,3 +31,6 @@
 !.ghci
 !.tmux/plugins/tmux-powerline/themes/theme.sh
 !.tmux-powerlinerc
+!.stow-local-ignore
+!.xinitrc
+!Makefile

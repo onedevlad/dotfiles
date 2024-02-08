@@ -1,0 +1,28 @@
+[colors.primary]
+background = "#1e1e1e"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 10
+
+[font.normal]
+family = "Ubuntu Mono Nerd Font"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "X"
+mods = "Control"
+
+[shell]
+program = "/bin/zsh"
+
+[window]
+opacity = 0.75
