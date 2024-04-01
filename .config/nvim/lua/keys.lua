@@ -64,5 +64,10 @@ keymap("n", '<Leader>dfa', ":DiffviewFileHistory<CR>", opts)
 keymap("n", '<Leader>dfo', ":DiffviewOpen<CR>", opts)
 keymap("n", '<Leader>dfx', ":DiffviewClose<CR>", opts)
 
+keymap("n", '<Leader>t', ':lua require("neotest").run.run()<CR>', opts)
+keymap("n", '<Leader>tf', ':lua require("neotest").run.run(vim.fn.expand("%"))<CR>', opts)
+keymap("n", '<Leader>td', ':lua require("neotest").run.run({ strategy = "dap" })<CR>', opts)
+keymap("n", '<Leader>ts', ':lua require("neotest").summary.open()<CR>', opts)
+
 keymap('n', '<Leader>ev', ':e ~/.config/nvim/init.lua<CR>', opts)
 keymap('n', '<Leader>sv', ':luafile ~/.config/nvim/init.lua<CR>', opts)

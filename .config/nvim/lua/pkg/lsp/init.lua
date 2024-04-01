@@ -3,6 +3,10 @@ if not status_ok then
 	return
 end
 
-require("pkg.lsp.lsp-installer")
+require("mason").setup()
+require("mason-lspconfig").setup({
+  ensure_installed = { "lua_ls", "tsserver", "jsonls" },
+})
+require("pkg.lsp.lspconfig")
 require("pkg.lsp.handlers").setup()
-require("pkg.lsp.null-ls")
+require("pkg.lsp.none-ls")

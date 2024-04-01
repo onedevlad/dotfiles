@@ -22,30 +22,39 @@ require("lazy").setup({
   "vijaymarupudi/nvim-fzf",
   "akinsho/bufferline.nvim",
   "moll/vim-bbye",
-  "tpope/vim-fugitive",
   "lewis6991/gitsigns.nvim",
   "nvim-lua/plenary.nvim",
   { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" },
   {
-    "nvim-telescope/telescope.nvim",
-    requires = { {"nvim-lua/plenary.nvim"} }
-  },
-  { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+    "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } },
+  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
   "bkad/CamelCaseMotion",
   "norcalli/nvim-colorizer.lua",
-  -- "lukas-reineke/indent-blankline.nvim",
   'dnlhc/glance.nvim',
   "hrsh7th/nvim-cmp",
   "hrsh7th/cmp-path",
   "hrsh7th/cmp-buffer",
   "L3MON4D3/LuaSnip",
   "hrsh7th/cmp-nvim-lsp",
-  "jose-elias-alvarez/null-ls.nvim",
+  {
+    "nvimtools/none-ls.nvim",
+    dependencies = { "nvimtools/none-ls-extras.nvim" }
+  },
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-neotest/nvim-nio",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter"
+    }
+  },
+  "nvim-neotest/neotest-jest",
   "neovim/nvim-lspconfig",
-  "williamboman/nvim-lsp-installer",
+  "williamboman/mason.nvim",
+  "williamboman/mason-lspconfig.nvim",
   "numToStr/Comment.nvim",
   "kevinhwang91/nvim-bqf",
-
   { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
   "JoosepAlviste/nvim-ts-context-commentstring",
   "nvim-treesitter/playground"

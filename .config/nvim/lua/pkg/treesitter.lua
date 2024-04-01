@@ -13,11 +13,15 @@ configs.setup {
     additional_vim_regex_highlighting = false,
   },
   indent = { enable = false, disable = { "yaml" } },
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-  },
   playground = {
     enable = false,
   }
+}
+
+require('ts_context_commentstring').setup {
+  enable_autocmd = false,
+  languages = {
+    typescript = '// %s',
+    lua = '-- %s',
+  },
 }
