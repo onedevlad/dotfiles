@@ -125,8 +125,10 @@ chainloader /EFI/Microsoft/Boot/bootmgfw.efi
 boot
 ```
 
-### libinput touchpad configuration
+### Touchpad configuration
 > /etc/X11/xorg.conf.d/30-touchpad.conf
+
+libinput:
 ```
 Section "InputClass"
 	Identifier "touchpad"
@@ -136,6 +138,25 @@ Section "InputClass"
 	Option "TappingButtonMap" "lrm"
 	Option "ClickMethod" "clickfinger"
 	Option "Accel Speed" "0.25"
+EndSection
+```
+
+synaptics:
+```
+Section "InputClass"
+	Identifier "touchpad"
+	Driver "synaptics"
+	MatchIsTouchpad "on"
+	Option "TapButton1" "1"
+    Option "TapButton2" "3"
+    Option "TapButton3" "2"
+	Option "NaturalScrolling" "on"
+	Option "VertTwoFingerScroll" "on"
+	Option "VertScrollDelta" "-111"
+	Option "AccelFactor" "0.2"
+	Option "PalmDetect" "1"
+	Option "PalmMinWidth" "5"
+	Option "PalmMinZ" "100"
 EndSection
 ```
 
