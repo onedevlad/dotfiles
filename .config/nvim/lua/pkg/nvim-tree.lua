@@ -18,6 +18,9 @@ local function my_on_attach(bufnr)
     ["i"] = { api.node.open.horizontal, "Open: Horizontal Split" },
     ["C"] = { api.tree.change_root_to_node, "CD" },
     ["F"] = { api.tree.toggle_custom_filter, "Toggle Hidden" },
+    ["P"] = { api.fs.paste, "Paste Node" },
+    ["p"] = { api.node.navigate.parent, "Focus Parent" },
+    ["L"] = { ":bnext<CR>", "Focus Next Buffer" },
   }
 
   for keys, mapping in pairs(mappings) do

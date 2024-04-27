@@ -44,7 +44,7 @@ keymap('n', "<S-q>", ":Bdelete<CR>", opts)
 -- Use `P` to put register content on the next line
 keymap('n', 'P', ':pu<CR>', opts)
 
--- Use `X` to cut to clipboard
+-- Use `x` to cut to clipboard
 keymap('n', 'x', '"+x', opts)
 keymap('v', 'x', '"+x', opts)
 

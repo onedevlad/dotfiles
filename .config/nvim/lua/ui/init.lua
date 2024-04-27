@@ -27,25 +27,25 @@ vim.opt.fillchars:append("diff: ")
 
 -- Hybrid line numbers
 vim.opt.number = true
-vim.opt.relativenumber = true
+-- vim.opt.relativenumber = true
 vim.opt.signcolumn = 'number'
-local _group = vim.api.nvim_create_augroup("LineNumber", { clear = true })
-vim.api.nvim_create_autocmd("InsertEnter", {
-  pattern = "*",
-  callback = function()
-    vim.opt.relativenumber = false
-  end,
-  once = true,
-  group = _group,
-})
-vim.api.nvim_create_autocmd("InsertLeave", {
-  pattern = "*",
-  callback = function()
-    vim.opt.relativenumber = true
-  end,
-  once = true,
-  group = _group,
-})
+-- local _group = vim.api.nvim_create_augroup("LineNumber", { clear = true })
+-- vim.api.nvim_create_autocmd("InsertEnter", {
+--   pattern = "*",
+--   callback = function()
+--     vim.opt.relativenumber = false
+--   end,
+--   once = true,
+--   group = _group,
+-- })
+-- vim.api.nvim_create_autocmd("InsertLeave", {
+--   pattern = "*",
+--   callback = function()
+--     vim.opt.relativenumber = true
+--   end,
+--   once = true,
+--   group = _group,
+-- })
 
 require('ui/theme')
 require('../pkg.colorizer')

@@ -50,6 +50,19 @@ require("lazy").setup({
     }
   },
   "nvim-neotest/neotest-jest",
+  {
+    "mfussenegger/nvim-dap",
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+    },
+  },
+  {
+    "microsoft/vscode-js-debug",
+    build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+  },
+  "mxsdev/nvim-dap-vscode-js",
+  "rcarriga/cmp-dap",
+  "theHamsta/nvim-dap-virtual-text",
   "neovim/nvim-lspconfig",
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
@@ -57,5 +70,5 @@ require("lazy").setup({
   "kevinhwang91/nvim-bqf",
   { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
   "JoosepAlviste/nvim-ts-context-commentstring",
-  "nvim-treesitter/playground"
+  "nvim-treesitter/playground",
 })

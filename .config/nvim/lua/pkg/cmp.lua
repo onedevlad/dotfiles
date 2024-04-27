@@ -124,3 +124,23 @@ cmp.setup {
     native_menu = false,
   },
 }
+
+require("cmp").setup({
+  enabled = function()
+    return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
+        or require("cmp_dap").is_dap_buffer()
+  end
+})
+
+require("cmp").setup.filetype({ "dap-repl", "dapui_scopes", "dapui_watches", "dapui_hover" }, {
+  sources = {
+    { name = "dap" },
+  },
+})
+
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  pattern = "dap-repl",
+  callback = function(args)
+    vim.api.nvim_set_option_value("buflisted", false, { buf = args.buf })
+  end,
+})
