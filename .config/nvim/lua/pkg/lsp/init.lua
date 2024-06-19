@@ -7,7 +7,7 @@ require("mason").setup({
   ensure_installed = { "js-debug-adapter" },
 })
 require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls", "tsserver", "jsonls" },
+  ensure_installed = { "lua_ls", "jsonls" },
 })
 require("pkg.lsp.lspconfig")
 require("pkg.lsp.handlers").setup()

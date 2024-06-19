@@ -60,6 +60,11 @@ require("lazy").setup({
     "microsoft/vscode-js-debug",
     build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
   },
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
+  },
   "mxsdev/nvim-dap-vscode-js",
   "rcarriga/cmp-dap",
   "theHamsta/nvim-dap-virtual-text",
