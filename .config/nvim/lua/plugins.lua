@@ -76,4 +76,5 @@ require("lazy").setup({
   { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
   "JoosepAlviste/nvim-ts-context-commentstring",
   "nvim-treesitter/playground",
+  "echasnovski/mini.ai",
 })

@@ -6,8 +6,7 @@ end
 local api = require("typescript-tools.api")
 
 tstools.setup {
-  -- on_attach = function() ... end,
-  -- handlers = { ... },
+  on_attach = require('pkg.lsp.handlers').on_attach;
   handlers = {
     ["textDocument/publishDiagnostics"] = api.filter_diagnostics(
       -- Ignore 'This may be converted to an async function' diagnostics.
