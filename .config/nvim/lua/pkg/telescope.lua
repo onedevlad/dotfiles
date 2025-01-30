@@ -52,6 +52,7 @@ telescope.setup({
       n = {
         ["<esc>"] = actions.close,
         ["<CR>"] = actions.select_default,
+        ["o"] = actions.select_default,
         ["<C-x>"] = actions.select_horizontal,
         ["<C-v>"] = actions.select_vertical,
         ["<C-t>"] = actions.select_tab,
@@ -69,6 +70,8 @@ telescope.setup({
 
         ["<Down>"] = actions.move_selection_next,
         ["<Up>"] = actions.move_selection_previous,
+        ["q"] = actions.delete_buffer,
+        ["x"] = actions.delete_buffer,
         ["gg"] = actions.move_to_top,
         ["G"] = actions.move_to_bottom,
 
@@ -83,6 +86,9 @@ telescope.setup({
     },
   },
   pickers = {
+    find_files = {
+      hidden = true
+    },
     buffers = {
       initial_mode = 'normal',
     },

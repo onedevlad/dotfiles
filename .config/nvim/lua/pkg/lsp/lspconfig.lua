@@ -25,3 +25,9 @@ require("lspconfig")["hls"].setup({
   capabilities = capabilities,
   settings = require("pkg.lsp.settings.hls").settings,
 })
+
+require("lspconfig")["html"].setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {},
+})

@@ -13,5 +13,7 @@ neotest.setup({
         return vim.fn.getcwd()
       end,
     }),
-  }
+  },
+  status = { virtual_text = true },
+  output = { open_on_run = true },
 })

@@ -77,4 +77,5 @@ require("lazy").setup({
   "JoosepAlviste/nvim-ts-context-commentstring",
   "nvim-treesitter/playground",
   "echasnovski/mini.ai",
+  "joukevandermaas/vim-ember-hbs",
 })
