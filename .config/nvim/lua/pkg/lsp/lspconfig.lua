@@ -1,32 +1,40 @@
 local on_attach = require("pkg.lsp.handlers").on_attach
 local capabilities = require("pkg.lsp.handlers").capabilities
 
+local lspconfig = require("lspconfig")
+
 -- require("lspconfig")["tsserver"].setup({
 --   on_attach = on_attach,
 --   capabilities = capabilities,
 --   settings = require("pkg.lsp.settings.tsserver").settings,
 -- })
 
-require("lspconfig")["jsonls"].setup({
+lspconfig.jsonls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   settings = require("pkg.lsp.settings.jsonls").settings,
   setup = require("pkg.lsp.settings.jsonls").setup,
 })
 
-require("lspconfig")["lua_ls"].setup({
+lspconfig.lua_ls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   settings = require("pkg.lsp.settings.lua_ls").settings,
 })
 
-require("lspconfig")["hls"].setup({
+lspconfig.hls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   settings = require("pkg.lsp.settings.hls").settings,
 })
 
-require("lspconfig")["html"].setup({
+lspconfig.terraformls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = require("pkg.lsp.settings.terraformls").settings,
+})
+
+lspconfig.tflint.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {},

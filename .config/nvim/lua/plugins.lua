@@ -12,7 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  "wbthomason/packer.nvim",
   "kyazdani42/nvim-web-devicons",
   "kyazdani42/nvim-tree.lua",
   "nvim-lualine/lualine.nvim",
@@ -21,7 +20,6 @@ require("lazy").setup({
   "easymotion/vim-easymotion",
   "vijaymarupudi/nvim-fzf",
   "akinsho/bufferline.nvim",
-  "moll/vim-bbye",
   "lewis6991/gitsigns.nvim",
   "nvim-lua/plenary.nvim",
   { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" },

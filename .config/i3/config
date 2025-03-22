@@ -194,7 +194,7 @@ exec --no-startup-id xset -b # Disables system bell
 
 exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/while\ we\ sleep.png
 exec --no-startup-id dunst
-exec --no-startup-id picom --config /home/vlad/.config/picom/picom.conf
+exec --no-startup-id picom --backend glx --config /home/vlad/.config/picom/picom.conf
 exec --no-startup-id "i3-battery-popup -n -L 20 -t 1m"
 exec --no-startup-id redshift -l 48:24
 exec --no-startup-id nm-applet

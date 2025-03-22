@@ -21,8 +21,10 @@ action = "Copy"
 key = "X"
 mods = "Control"
 
-[shell]
+[terminal.shell]
 program = "/bin/zsh"
 
 [window]
 opacity = 0.75
+
+[terminal]
