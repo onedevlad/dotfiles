@@ -26,7 +26,7 @@
 !.gitignore
 !.vim/
 !.vim/config
-!.tmux.conf
+!.tmux.*
 !.lesskey
 !.ghci
 !.tmux/plugins/tmux-powerline/themes/theme.sh
