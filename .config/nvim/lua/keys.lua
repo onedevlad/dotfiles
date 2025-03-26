@@ -2,6 +2,7 @@ vim.g.mapleader = ','
 
 local opts = { noremap = true, silent = true }
 local keymap = vim.api.nvim_set_keymap
+local utils = require("utils.main")
 
 -- NvimTree
 vim.cmd [[
@@ -31,15 +32,16 @@ keymap('', '<C-l>', '<C-w><Right>', opts)
 keymap('', '<C-h>', '<C-w><Left>', opts)
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+local resizingPrefix = utils.isMac() and "M" or "C";
+keymap("n", string.format("<%s-Up>", resizingPrefix), ":resize -2<CR>", opts)
+keymap("n", string.format("<%s-Down>", resizingPrefix), ":resize +2<CR>", opts)
+keymap("n", string.format("<%s-Left>", resizingPrefix), ":vertical resize -2<CR>", opts)
+keymap("n", string.format("<%s-Right>", resizingPrefix), ":vertical resize +2<CR>", opts)
 
 -- Move to prev/next buffer
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
-keymap('n', "<S-q>", ":Bdelete<CR>", opts)
+keymap('n', "<S-q>", ":bdelete<CR>", opts)
 
 -- Use `P` to put register content on the next line
 keymap('n', 'P', ':pu<CR>', opts)

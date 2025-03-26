@@ -84,11 +84,11 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -123,8 +123,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # export PATH=$PATH:$HOME/.cabal/bin
 # export PATH=$PATH:$GHCUP_INSTALL_BASE_PREFIX/.ghcup/bin
 
-# eval "$(thefuck --alias)"
-
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
@@ -143,9 +141,6 @@ setopt share_history
 setopt hist_expire_dups_first
 setopt hist_ignore_dups
 setopt hist_verify
-
-alias ls="eza --icons=auto"
-eval "$(zoxide init zsh)"
 
 # completion using arrow keys (based on history)
 bindkey '^[[A' history-search-backward
