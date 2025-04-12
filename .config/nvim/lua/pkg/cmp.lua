@@ -14,38 +14,38 @@ local check_backspace = function()
 end
 
 local kind_icons = {
-  Text = "",
-  Method = "m",
-  Function = "",
+  Text = "󰊄",
+  Method = "󰊕",
+  Function = "󰊕",
   Constructor = "",
   Field = "",
-  Variable = "",
-  Class = "",
+  Variable = "󰫧",
+  Class = "",
   Interface = "",
   Module = "",
   Property = "",
   Unit = "",
   Value = "",
   Enum = "",
-  Keyword = "",
+  Keyword = "󰘳",
   Snippet = "",
   Color = "",
-  File = "",
+  File = "",
   Reference = "",
-  Folder = "",
+  Folder = "",
   EnumMember = "",
-  Constant = "",
+  Constant = "󰫢",
   Struct = "",
   Event = "",
-  Operator = "",
-  TypeParameter = "",
+  Operator = "",
+  TypeParameter = "",
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
 cmp.setup {
   snippet = {
     expand = function(args)
-      luasnip.lsp_expand(args.body) -- For `luasnip` users.
+      luasnip.lsp_expand(args.body)
     end,
   },
   mapping = {
@@ -94,30 +94,35 @@ cmp.setup {
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
-      -- Kind icons
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-      -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
         path = "[Path]",
         buffer = "[Buffer]",
         luasnip = "[Snippet]",
+        nvim_lsp = "[LSP]",
       })[entry.source.name]
       return vim_item
     end,
   },
   sources = {
     { name = "nvim_lsp" },
+    { name = "path" },
     { name = "luasnip" },
     { name = "buffer" },
-    { name = "path" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
   window = {
-    documentation = cmp.config.window.bordered(),
-    -- completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered({
+      winhighlight = "Normal:MyNormalFloat,FloatBorder:MyFloatBorder",
+      scrollbar = false
+    }),
+    completion = cmp.config.window.bordered({
+      winhighlight = "Normal:MyNormalFloat,FloatBorder:MyFloatBorder",
+      scrollbar = false
+    }),
   },
   experimental = {
     ghost_text = true,
@@ -125,22 +130,15 @@ cmp.setup {
   },
 }
 
-require("cmp").setup({
-  enabled = function()
-    return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
-        or require("cmp_dap").is_dap_buffer()
-  end
-})
-
-require("cmp").setup.filetype({ "dap-repl", "dapui_scopes", "dapui_watches", "dapui_hover" }, {
+cmp.setup.cmdline({ '/', '?' }, {
+  mapping = cmp.mapping.preset.cmdline(),
   sources = {
-    { name = "dap" },
-  },
+    { name = 'buffer' }
+  }
 })
 
-vim.api.nvim_create_autocmd("BufWinEnter", {
-  pattern = "dap-repl",
-  callback = function(args)
-    vim.api.nvim_set_option_value("buflisted", false, { buf = args.buf })
-  end,
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({ { name = 'path' } }, { { name = 'cmdline' } }),
+  matching = { disallow_symbol_nonprefix_matching = true }
 })

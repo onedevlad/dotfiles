@@ -1,14 +1,10 @@
-local status_ok, _ = pcall(require, "lspconfig")
-if not status_ok then
-	return
-end
+require("pkg.lsp.mason")
 
-require("mason").setup({
-  ensure_installed = { "js-debug-adapter" },
+vim.lsp.config("*", {
+  root_markers = { ".git" },
 })
-require("mason-lspconfig").setup({
-  ensure_installed = { "lua_ls", "jsonls", "terraformls", "tflint" },
-})
-require("pkg.lsp.lspconfig")
-require("pkg.lsp.handlers").setup()
-require("pkg.lsp.none-ls")
+
+require("pkg.lsp.servers.json")
+require("pkg.lsp.servers.ts")
+require("pkg.lsp.servers.lua")
+require("pkg.lsp.servers.terraform")

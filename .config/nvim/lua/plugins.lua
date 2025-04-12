@@ -1,79 +1,76 @@
+-- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out, "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
 end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  "kyazdani42/nvim-web-devicons",
-  "kyazdani42/nvim-tree.lua",
-  "nvim-lualine/lualine.nvim",
+  -- UI
   "lunarvim/darkplus.nvim",
+  "tadaa/vimade",
+  "kyazdani42/nvim-web-devicons",
+  "nvim-lualine/lualine.nvim",
   "joeytwiddle/sexy_scroller.vim",
-  "easymotion/vim-easymotion",
-  "vijaymarupudi/nvim-fzf",
   "akinsho/bufferline.nvim",
-  "lewis6991/gitsigns.nvim",
-  "nvim-lua/plenary.nvim",
-  { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" },
-  {
-    "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } },
-  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-  "bkad/CamelCaseMotion",
   "norcalli/nvim-colorizer.lua",
-  'dnlhc/glance.nvim',
+  "maan2003/lsp_lines.nvim",
+  "lewis6991/gitsigns.nvim",
+
+  -- Editing
+  "bkad/CamelCaseMotion",
+  require("pkg.flash"),
+  "kevinhwang91/nvim-bqf",
+  "echasnovski/mini.ai",
   "hrsh7th/nvim-cmp",
   "hrsh7th/cmp-path",
   "hrsh7th/cmp-buffer",
-  "L3MON4D3/LuaSnip",
+  "hrsh7th/cmp-cmdline",
   "hrsh7th/cmp-nvim-lsp",
+  "L3MON4D3/LuaSnip",
   {
     "nvimtools/none-ls.nvim",
     dependencies = { "nvimtools/none-ls-extras.nvim" }
   },
+
+  -- LSP
+  "williamboman/mason.nvim",
+  "WhoIsSethDaniel/mason-tool-installer.nvim",
+  "numToStr/Comment.nvim",
+  "JoosepAlviste/nvim-ts-context-commentstring",
+
+  -- Utilities
+  "dnlhc/glance.nvim",
+  "kyazdani42/nvim-tree.lua",
+  { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" },
   {
     "nvim-neotest/neotest",
     dependencies = {
       "nvim-neotest/nvim-nio",
+      "nvim-neotest/neotest-jest",
       "nvim-lua/plenary.nvim",
       "antoinemadec/FixCursorHold.nvim",
       "nvim-treesitter/nvim-treesitter"
     }
   },
-  "nvim-neotest/neotest-jest",
-  {
-    "mfussenegger/nvim-dap",
-    dependencies = {
-      "rcarriga/nvim-dap-ui",
-    },
-  },
-  {
-    "microsoft/vscode-js-debug",
-    build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
-  },
-  {
-    "pmizio/typescript-tools.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    opts = {},
-  },
-  "mxsdev/nvim-dap-vscode-js",
-  "rcarriga/cmp-dap",
-  "theHamsta/nvim-dap-virtual-text",
-  "neovim/nvim-lspconfig",
-  "williamboman/mason.nvim",
-  "williamboman/mason-lspconfig.nvim",
-  "numToStr/Comment.nvim",
-  "kevinhwang91/nvim-bqf",
+
+  -- Telescope
+  { "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } },
+  { "nvim-telescope/telescope-fzf-native.nvim", build = 'make' },
+  "nvim-lua/plenary.nvim",
+  "vijaymarupudi/nvim-fzf",
+
+  -- Treesitter
   { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
-  "JoosepAlviste/nvim-ts-context-commentstring",
   "nvim-treesitter/playground",
-  "echasnovski/mini.ai",
-  "joukevandermaas/vim-ember-hbs",
 })

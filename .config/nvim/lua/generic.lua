@@ -4,8 +4,10 @@ vim.opt.wb = false
 vim.opt.swapfile = false
 
 vim.opt.clipboard = 'unnamedplus'
+vim.opt.termguicolors = true
 
-vim.cmd [[ au FocusLost * silent! wa ]]
+-- Autosave on focus loss
+vim.cmd [[ autocmd BufLeave,FocusLost * silent! wall ]]
 
 vim.cmd [[
   if has('persistent_undo')

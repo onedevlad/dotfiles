@@ -8,6 +8,7 @@ configs.setup {
     "lua",
     "javascript",
     "typescript",
+    "json",
     "terraform",
     "hcl",
   }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages

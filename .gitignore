@@ -29,7 +29,7 @@
 !.tmux.*
 !.lesskey
 !.ghci
-!.tmux/plugins/tmux-powerline/themes/theme.sh
+!.tmux/plugins/tmux-powerline/themes/default.sh
 !.tmux-powerlinerc
 !.stow-local-ignore
 !.xinitrc

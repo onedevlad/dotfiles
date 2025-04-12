@@ -7,7 +7,6 @@ vim.opt.ignorecase = true -- Ignore search term case
 vim.opt.hlsearch = true   -- Highlight search terms
 vim.opt.incsearch = true  -- Show search matches as you type
 
--- Don't redraw while executing macros (good performance config)
 vim.opt.lazyredraw = true
 vim.opt.cursorline = true
 vim.opt.showcmd = true
@@ -25,27 +24,20 @@ vim.opt.listchars = "tab:>-,space:·"
 vim.opt.fillchars:append("vert:▕")
 vim.opt.fillchars:append("diff: ")
 
--- Hybrid line numbers
+vim.o.winborder = 'none'
 vim.opt.number = true
--- vim.opt.relativenumber = true
 vim.opt.signcolumn = 'number'
--- local _group = vim.api.nvim_create_augroup("LineNumber", { clear = true })
--- vim.api.nvim_create_autocmd("InsertEnter", {
---   pattern = "*",
---   callback = function()
---     vim.opt.relativenumber = false
---   end,
---   once = true,
---   group = _group,
--- })
--- vim.api.nvim_create_autocmd("InsertLeave", {
---   pattern = "*",
---   callback = function()
---     vim.opt.relativenumber = true
---   end,
---   once = true,
---   group = _group,
--- })
 
-require('ui/theme')
-require('../pkg.colorizer')
+require("vimade").setup({
+  fadelevel = 0.5,
+  blocklist = {
+    nvimtree = {
+      buf_name = { 'NvimTree', 'nofile' },
+    },
+    bufferline = {
+      highlights = { '/^BufferLine.*/' },
+    }
+  }
+})
+
+require('ui.theme')
