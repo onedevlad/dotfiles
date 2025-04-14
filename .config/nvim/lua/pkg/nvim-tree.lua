@@ -41,7 +41,7 @@ require('nvim-tree').setup({
     ignore_list = {}
   },
   view = {
-    signcolumn = "auto",
+    signcolumn = "yes",
   },
   actions = {
     open_file = {

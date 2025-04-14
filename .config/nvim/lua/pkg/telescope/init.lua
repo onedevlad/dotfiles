@@ -70,3 +70,4 @@ telescope.setup({
 })
 
 require('telescope').load_extension('fzf')
+require("pkg.telescope.multigrep").setup()

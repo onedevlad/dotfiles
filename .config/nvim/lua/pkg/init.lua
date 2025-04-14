@@ -1,6 +1,6 @@
 require('pkg.nvim-tree')
 require('pkg.lualine')
-require('pkg.telescope')
+require('pkg.telescope.init')
 require('pkg.sexyscroller')
 require('pkg.colorizer')
 require('pkg.cmp')
