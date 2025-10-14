@@ -67,7 +67,7 @@ keymap("n", "<Leader>dfq", ":DiffviewClose<CR>", opts)
 
 -- Telescope
 keymap('n', '<Leader>f', ':Telescope find_files<CR>', opts)
--- keymap('n', '<Leader>a', ':Telescope live_grep<CR>', opts)
+keymap('n', '<Leader>a', ':Telescope live_grep<CR>', opts)
 keymap('n', '<Leader>b', ':Telescope buffers<CR>', opts)
 
 -- Tests

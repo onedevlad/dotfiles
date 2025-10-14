@@ -49,6 +49,20 @@ require("lazy").setup({
   "numToStr/Comment.nvim",
   "JoosepAlviste/nvim-ts-context-commentstring",
 
+  -- LLM
+  {
+     "yetone/avante.nvim",
+     build = "make",
+     dependencies = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "nvim-telescope/telescope.nvim",
+      "stevearc/dressing.nvim", -- for input provider dressing
+      "folke/snacks.nvim", -- for input provider snacks
+      "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+     }
+  },
+
   -- Utilities
   "dnlhc/glance.nvim",
   "kyazdani42/nvim-tree.lua",

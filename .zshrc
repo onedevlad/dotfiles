@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/vlad/.oh-my-zsh"
+export ZSH="/home/vlad/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -150,7 +150,7 @@ bindkey '^[[B' history-search-forward
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-export NVM_DIR="/Users/vlad/.nvm"
+export NVM_DIR="/home/vlad/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 if [ -e /home/vlad/.nix-profile/etc/profile.d/nix.sh ]; then . /home/vlad/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
