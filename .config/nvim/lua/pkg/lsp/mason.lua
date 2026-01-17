@@ -5,5 +5,7 @@ require("mason-tool-installer").setup({
     "lua-language-server",
     "terraform-ls",
     "typescript-language-server",
+    "json-lsp",
+    "pyright",
   },
 })
