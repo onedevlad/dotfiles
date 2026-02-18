@@ -19,7 +19,7 @@ map("i", "jk", "<esc>")
 map("n", "<c-s>", ":w<CR>")
 
 -- Map ; to : to skip pressing Shift every time
-map("n", ";", ":", { noremap = true })
+map("n", ";", ":", { noremap = true, silent = false })
 
 map("n", "<Leader>/", ":nohlsearch<CR>", { desc = "Clear search" })
 
@@ -60,9 +60,9 @@ map("x", "K", ":move '<-2<CR>gv-gv", { desc = "Move up" })
 map("n", "<Leader>q", ":Ctoggle<CR>", { desc = "Toggle Quickfix" })
 
 -- DiffView
--- map("n", "<Leader>dff", ":DiffviewFileHistory %<CR>", { desc = "File history" })
--- map("n", "<Leader>dfo", ":DiffviewOpen<CR>", { desc = "Open diff" })
--- map("n", "<Leader>dfq", ":DiffviewClose<CR>", { desc = "Close diff" })
+map("n", "<Leader>dff", ":DiffviewFileHistory %<CR>", { desc = "File history" })
+map("n", "<Leader>dfo", ":DiffviewOpen<CR>", { desc = "Open diff" })
+map("n", "<Leader>dfq", ":DiffviewClose<CR>", { desc = "Close diff" })
 
 -- Telescope
 map('n', '<Leader>f', ':Telescope find_files<CR>', { desc = "Find files" })
@@ -70,11 +70,11 @@ map('n', '<Leader>a', ':Telescope live_grep<CR>', { desc = "Live grep" })
 map('n', '<Leader>b', ':Telescope buffers<CR>', { desc = "List buffers" })
 
 -- Tests
-map("n", "<Leader>t", ":lua require('neotest').run.run()<CR>", { desc = "Run test" })
+map("n", "<Leader>tt", ":lua require('neotest').run.run()<CR>", { desc = "Run test" })
 map("n", "<Leader>ta", ":lua require('neotest').run.run(vim.fn.expand('%'))<CR>", { desc = "Run all tests" })
 map("n", "<Leader>td", ":lua require('neotest').run.run({ strategy = 'dap' })<CR>", { desc = "Debug test" })
 map("n", "<Leader>ts", ":lua require('neotest').summary.toggle()<CR>", { desc = "Toggle summary" })
 map("n", "<Leader>to", ":lua require('neotest').output.open({ autoClose = true })<CR>", { desc = "Open output" })
 
 -- DAP
-map("n", "<Leader>dt", ":lua require('dap').toggle_breakpoint()<CR>", { desc = "Toggle breakpoint" })
+-- map("n", "<Leader>dt", ":lua require('dap').toggle_breakpoint()<CR>", { desc = "Toggle breakpoint" })
