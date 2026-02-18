@@ -10,7 +10,7 @@ end
 
 -- NvimTree
 map("n", "<Leader><Leader>", ":NvimTreeToggle<CR>", { desc = "Toggle filetree" });
-map("n", "<Leader>g", ":NvimTreeFindFile<CR>", { desc = "Locate file in filetree" });
+map("n", "<Leader>g", ":NvimTreeFindFile<CR>", { desc = "Locate file" });
 
 -- Allow jk to be used instead of Esc to switch to NORMAL mode
 map("i", "jk", "<esc>")
@@ -60,9 +60,9 @@ map("x", "K", ":move '<-2<CR>gv-gv", { desc = "Move up" })
 map("n", "<Leader>q", ":Ctoggle<CR>", { desc = "Toggle Quickfix" })
 
 -- DiffView
-map("n", "<Leader>dff", ":DiffviewFileHistory %<CR>", { desc = "File history" })
-map("n", "<Leader>dfo", ":DiffviewOpen<CR>", { desc = "Open diff" })
-map("n", "<Leader>dfq", ":DiffviewClose<CR>", { desc = "Close diff" })
+map("n", "<Leader>vf", ":DiffviewFileHistory %<CR>", { desc = "File history" })
+map("n", "<Leader>vo", ":DiffviewOpen<CR>", { desc = "View unstaged" })
+map("n", "<Leader>vq", ":DiffviewClose<CR>", { desc = "Close diffview" })
 
 -- Telescope
 map('n', '<Leader>f', ':Telescope find_files<CR>', { desc = "Find files" })
