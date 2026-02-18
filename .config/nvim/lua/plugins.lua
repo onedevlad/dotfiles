@@ -18,7 +18,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   -- UI
   "lunarvim/darkplus.nvim",
-  "tadaa/vimade",
+  "tadaa/vimade", -- dims inactive panes
   "kyazdani42/nvim-web-devicons",
   "nvim-lualine/lualine.nvim",
   "joeytwiddle/sexy_scroller.vim",
@@ -49,24 +49,11 @@ require("lazy").setup({
   "numToStr/Comment.nvim",
   "JoosepAlviste/nvim-ts-context-commentstring",
 
-  -- LLM
-  {
-     "yetone/avante.nvim",
-     build = "make",
-     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      "nvim-telescope/telescope.nvim",
-      "stevearc/dressing.nvim", -- for input provider dressing
-      "folke/snacks.nvim", -- for input provider snacks
-      "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-     }
-  },
-
   -- Utilities
   "dnlhc/glance.nvim",
   "kyazdani42/nvim-tree.lua",
   { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" },
+  { "folke/which-key.nvim", event = "VeryLazy" },
   {
     "nvim-neotest/neotest",
     dependencies = {
@@ -87,4 +74,16 @@ require("lazy").setup({
   -- Treesitter
   { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
   "nvim-treesitter/playground",
+
+  -- DAP
+  {
+    "mfussenegger/nvim-dap",
+    event = "VeryLazy",
+    dependencies = {
+        "rcarriga/nvim-dap-ui",
+        "nvim-neotest/nvim-nio",
+        "jay-babu/mason-nvim-dap.nvim",
+        "theHamsta/nvim-dap-virtual-text",
+    },
+},
 })

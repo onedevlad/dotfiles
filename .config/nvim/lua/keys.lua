@@ -1,78 +1,80 @@
 vim.g.mapleader = ","
 
 local opts = { noremap = true, silent = true }
-local keymap = vim.api.nvim_set_keymap
 local utils = require("utils.main")
 
+local function map(mode, lhs, rhs, custom_opts)
+  local merged_opts = vim.tbl_extend("force", opts, custom_opts or {})
+  vim.api.nvim_set_keymap(mode, lhs, rhs, merged_opts)
+end
+
 -- NvimTree
-keymap("n", "<Leader><Leader>", ":NvimTreeToggle<CR>", opts);
-keymap("n", "<Leader>g", ":NvimTreeFindFile<CR>", {});
+map("n", "<Leader><Leader>", ":NvimTreeToggle<CR>", { desc = "Toggle filetree" });
+map("n", "<Leader>g", ":NvimTreeFindFile<CR>", { desc = "Locate file in filetree" });
 
 -- Allow jk to be used instead of Esc to switch to NORMAL mode
-keymap("i", "jk", "<esc>", opts)
+map("i", "jk", "<esc>")
 
 -- Save files with `Ctrl+S`
-keymap("n", "<c-s>", ":w<CR>", opts)
+map("n", "<c-s>", ":w<CR>")
 
 -- Map ; to : to skip pressing Shift every time
-keymap("n", ";", ":", { noremap = true })
+map("n", ";", ":", { noremap = true })
 
--- Map `,/` to clear last search highlight
-keymap("n", "<Leader>/", ":nohlsearch<CR>", opts)
+map("n", "<Leader>/", ":nohlsearch<CR>", { desc = "Clear search" })
 
 -- Map ctrl-movement keys to window switching
-keymap("", "<C-k>", "<C-w><Up>", opts)
-keymap("", "<C-j>", "<C-w><Down>", opts)
-keymap("", "<C-l>", "<C-w><Right>", opts)
-keymap("", "<C-h>", "<C-w><Left>", opts)
+map("", "<C-k>", "<C-w><Up>")
+map("", "<C-j>", "<C-w><Down>")
+map("", "<C-l>", "<C-w><Right>")
+map("", "<C-h>", "<C-w><Left>")
 
 -- Resize with arrows
 local resizingPrefix = utils.isMac() and "M" or "C";
-keymap("n", string.format("<%s-Up>", resizingPrefix), ":resize -2<CR>", opts)
-keymap("n", string.format("<%s-Down>", resizingPrefix), ":resize +2<CR>", opts)
-keymap("n", string.format("<%s-Left>", resizingPrefix), ":vertical resize -2<CR>", opts)
-keymap("n", string.format("<%s-Right>", resizingPrefix), ":vertical resize +2<CR>", opts)
+map("n", string.format("<%s-Up>", resizingPrefix), ":resize -2<CR>")
+map("n", string.format("<%s-Down>", resizingPrefix), ":resize +2<CR>")
+map("n", string.format("<%s-Left>", resizingPrefix), ":vertical resize -2<CR>")
+map("n", string.format("<%s-Right>", resizingPrefix), ":vertical resize +2<CR>")
 
 -- Move to prev/next buffer
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
-keymap("n", "<S-q>", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
+map("n", "<S-l>", ":bnext<CR>")
+map("n", "<S-h>", ":bprevious<CR>")
+map("n", "<S-q>", ":bp<bar>sp<bar>bn<bar>bd<CR>")
 
--- Use `P` to put register content on the next line
-keymap("n", "P", ":pu<CR>", opts)
+map("n", "P", ":pu<CR>", { desc = "Paste below" })
 
 -- Use `x` to cut to clipboard
-keymap("n", "x", '"+x', opts)
-keymap("v", "x", '"+x', opts)
+map("n", "x", '"+x', { desc = "Cut" })
+map("v", "x", '"+x', { desc = "Cut" })
 
 -- Prevent `d` and `x` from cutting text instead of deleting
-keymap("n", "d", '"_d', opts)
-keymap("v", "d", '"_d', opts)
-keymap("n", "x", '"_x', opts)
-keymap("v", "x", '"_x', opts)
+map("n", "d", '"_d')
+map("v", "d", '"_d')
+map("n", "x", '"_x')
+map("v", "x", '"_x')
 
 -- Visual Block --
--- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+map("x", "J", ":move '>+1<CR>gv-gv", { desc = "Move down" })
+map("x", "K", ":move '<-2<CR>gv-gv", { desc = "Move up" })
 
--- Quickfix
-keymap("n", "<Leader>q", ":Ctoggle<CR>", opts)
+map("n", "<Leader>q", ":Ctoggle<CR>", { desc = "Toggle Quickfix" })
 
 -- DiffView
-keymap("n", "<Leader>dfc", ":DiffviewFileHistory %<CR>", opts)
-keymap("n", "<Leader>dfa", ":DiffviewFileHistory<CR>", opts)
-keymap("n", "<Leader>dfo", ":DiffviewOpen<CR>", opts)
-keymap("n", "<Leader>dfq", ":DiffviewClose<CR>", opts)
+-- map("n", "<Leader>dff", ":DiffviewFileHistory %<CR>", { desc = "File history" })
+-- map("n", "<Leader>dfo", ":DiffviewOpen<CR>", { desc = "Open diff" })
+-- map("n", "<Leader>dfq", ":DiffviewClose<CR>", { desc = "Close diff" })
 
 -- Telescope
-keymap('n', '<Leader>f', ':Telescope find_files<CR>', opts)
-keymap('n', '<Leader>a', ':Telescope live_grep<CR>', opts)
-keymap('n', '<Leader>b', ':Telescope buffers<CR>', opts)
+map('n', '<Leader>f', ':Telescope find_files<CR>', { desc = "Find files" })
+map('n', '<Leader>a', ':Telescope live_grep<CR>', { desc = "Live grep" })
+map('n', '<Leader>b', ':Telescope buffers<CR>', { desc = "List buffers" })
 
 -- Tests
-keymap("n", "<Leader>t", ":lua require('neotest').run.run()<CR>", opts)
-keymap("n", "<Leader>ta", ":lua require('neotest').run.run(vim.fn.expand('%'))<CR>", opts)
-keymap("n", "<Leader>td", ":lua require('neotest').run.run({ strategy = 'dap' })<CR>", opts)
-keymap("n", "<Leader>ts", ":lua require('neotest').summary.toggle()<CR>", opts)
-keymap("n", "<Leader>to", ":lua require('neotest').output.open({ autoClose = true })<CR>", opts)
+map("n", "<Leader>t", ":lua require('neotest').run.run()<CR>", { desc = "Run test" })
+map("n", "<Leader>ta", ":lua require('neotest').run.run(vim.fn.expand('%'))<CR>", { desc = "Run all tests" })
+map("n", "<Leader>td", ":lua require('neotest').run.run({ strategy = 'dap' })<CR>", { desc = "Debug test" })
+map("n", "<Leader>ts", ":lua require('neotest').summary.toggle()<CR>", { desc = "Toggle summary" })
+map("n", "<Leader>to", ":lua require('neotest').output.open({ autoClose = true })<CR>", { desc = "Open output" })
+
+-- DAP
+map("n", "<Leader>dt", ":lua require('dap').toggle_breakpoint()<CR>", { desc = "Toggle breakpoint" })
