@@ -65,8 +65,8 @@ map("n", "<Leader>vo", ":DiffviewOpen<CR>", { desc = "View unstaged" })
 map("n", "<Leader>vq", ":DiffviewClose<CR>", { desc = "Close diffview" })
 
 -- Telescope
-map('n', '<Leader>f', ':Telescope find_files<CR>', { desc = "Find files" })
 map('n', '<Leader>a', ':Telescope live_grep<CR>', { desc = "Live grep" })
+map('n', '<Leader>f', ':Telescope find_files<CR>', { desc = "Find files" })
 map('n', '<Leader>b', ':Telescope buffers<CR>', { desc = "List buffers" })
 
 -- Tests

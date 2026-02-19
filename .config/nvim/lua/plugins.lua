@@ -19,6 +19,7 @@ require("lazy").setup({
   -- UI
   "lunarvim/darkplus.nvim",
   "tadaa/vimade", -- dims inactive panes
+  "nvim-mini/mini.icons",
   "kyazdani42/nvim-web-devicons",
   "nvim-lualine/lualine.nvim",
   "joeytwiddle/sexy_scroller.vim",
@@ -26,6 +27,7 @@ require("lazy").setup({
   "norcalli/nvim-colorizer.lua",
   "maan2003/lsp_lines.nvim",
   "lewis6991/gitsigns.nvim",
+  "lukas-reineke/indent-blankline.nvim",
 
   -- Editing
   "bkad/CamelCaseMotion",
@@ -80,10 +82,10 @@ require("lazy").setup({
     "mfussenegger/nvim-dap",
     event = "VeryLazy",
     dependencies = {
-        "rcarriga/nvim-dap-ui",
-        "nvim-neotest/nvim-nio",
-        "jay-babu/mason-nvim-dap.nvim",
-        "theHamsta/nvim-dap-virtual-text",
+      "rcarriga/nvim-dap-ui",
+      "nvim-neotest/nvim-nio",
+      "jay-babu/mason-nvim-dap.nvim",
+      "theHamsta/nvim-dap-virtual-text",
     },
-},
+  },
 })
