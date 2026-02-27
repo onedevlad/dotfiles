@@ -15,6 +15,7 @@
 !.config/nvim/**
 !.config/dunst/
 !.config/dunst/**
+!.config/opencode/**
 !Pictures/Wallpapers
 !Pictures/Wallpapers/**
 !docs
