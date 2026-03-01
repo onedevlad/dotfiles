@@ -71,11 +71,13 @@ HIST_STAMPS="mm/dd/yyyy"
 plugins=(
   vi-mode
   zsh-autosuggestions
+  kubectl
+  task
 )
 
 source $ZSH/oh-my-zsh.sh
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#606060'
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -93,15 +95,10 @@ fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim=nvim
+alias oc=opencode
+alias t=task
+alias tl='task --list-all'
 
 # Remove delay on vi-mode toggle (N*10ms)
 export KEYTIMEOUT=10
@@ -109,16 +106,16 @@ export VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 bindkey -M viins 'jk' vi-cmd-mode
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+
 # Not to be disturbed by Ctrl-S ctrl-Q in terminals:
 stty -ixon
 
 # Ruby
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+# export PATH="$PATH:$HOME/.rvm/bin"
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # Haskell
-[ -f "/home/vlad/.ghcup/env" ] && source "/home/vlad/.ghcup/env" # ghcup-env
+# [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 # export GHCUP_INSTALL_BASE_PREFIX=$HOME
 # export PATH=$PATH:$HOME/.cabal/bin
 # export PATH=$PATH:$GHCUP_INSTALL_BASE_PREFIX/.ghcup/bin
@@ -130,8 +127,12 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 # export ANDROID_NDK=~/Android/Sdk/ndk/20.0.5594570
 
+# Yarn
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH:$HOME/.local/bin"
+# opencode
+export PATH="$HOME/.opencode/bin:$PATH"
+
 bindkey '^ ' autosuggest-accept
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#606060'
 
 # History setup
 HISTFILE=$HOME/.zhistory
@@ -146,26 +147,21 @@ setopt hist_verify
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH:$HOME/.local/bin"
-
-export NVM_DIR="/home/vlad/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-if [ -e /home/vlad/.nix-profile/etc/profile.d/nix.sh ]; then . /home/vlad/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# direnv
 if command -v direnv >/dev/null 2>&1; then
   eval "$(direnv hook zsh)"
 fi
 
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/home/vlad/.lmstudio/bin"
-
 if command -v direnv >/dev/null 2>&1; then
   eval "$(direnv hook zsh)"
 fi
+
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=($HOME/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
