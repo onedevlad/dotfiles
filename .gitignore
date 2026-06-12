@@ -16,6 +16,7 @@
 !.config/dunst/
 !.config/dunst/**
 !.config/opencode/**
+!.local/share/devbox/global/default/devbox.json
 !Pictures/Wallpapers
 !Pictures/Wallpapers/**
 !docs
@@ -28,6 +29,7 @@
 !.vim/
 !.vim/config
 !.tmux.*
+!.wezterm.lua
 !.lesskey
 !.ghci
 !.tmux/plugins/tmux-powerline/themes/default.sh
@@ -35,3 +37,4 @@
 !.stow-local-ignore
 !.xinitrc
 !Makefile
+!README.md

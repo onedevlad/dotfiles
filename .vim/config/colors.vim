@@ -10,7 +10,7 @@ if exists('+termguicolors')
 endif
 
 
-colorscheme monokai
+" colorscheme monokai
 
 " Colorscheme overrides
 hi SpecialKey  guifg=#767676 guibg=NONE
