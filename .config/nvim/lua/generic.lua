@@ -6,6 +6,10 @@ vim.opt.swapfile = false
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.termguicolors = true
 
+-- Fixes line shears in wezterm when editing neighboring buffers
+vim.opt.termsync = false
+vim.env.TERM = "wezterm"
+
 -- Autosave on focus loss
 vim.cmd [[ autocmd BufLeave,FocusLost * silent! wall ]]
 

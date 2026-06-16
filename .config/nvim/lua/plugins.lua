@@ -75,7 +75,6 @@ require("lazy").setup({
 
   -- Treesitter
   { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
-  "nvim-treesitter/playground",
 
   -- DAP
   {

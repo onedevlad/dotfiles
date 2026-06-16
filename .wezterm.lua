@@ -3,6 +3,7 @@ local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabl
 
 local config = wezterm.config_builder()
 local act = wezterm.action
+local mux = wezterm.mux
 local theme_name = 'Dark+'
 
 config.font_size = 12
@@ -10,6 +11,7 @@ config.color_scheme = theme_name
 config.inactive_pane_hsb = { saturation = 0.5, brightness = 0.2 }
 config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
 config.macos_window_background_blur = 100
+config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 
 config.tab_max_width = 40
 config.use_fancy_tab_bar = false
@@ -55,12 +57,13 @@ tabline.setup({
     tabline_a = {},
     tabline_b = {},
     tabline_c = {},
-    -- mirrors tmux: ▎#S:#W.#P (workspace shown in tabline_a, so tab shows index:process)
     tab_active = {
-      { 'index', padding = { left = 1, right = 0 } },
-      ':',
+      'index',
       { 'process', padding = { left = 0, right = 1 } },
-      { 'cwd', padding = {left = 0, right = 1 } },
+      { 'parent', padding = 0 },
+      '/',
+      { 'cwd', padding = { left = 0, right = 1 } },
+      { 'zoomed', padding = 0 },
     },
     tab_inactive = {
       { 'index', padding = { left = 1, right = 0 } },
@@ -69,7 +72,7 @@ tabline.setup({
     },
     tabline_x = {},
     tabline_y = { 'datetime', 'battery' },
-    tabline_z = { { 'workspace', icons_enabled = true, icons_only = true } },
+    tabline_z = { { 'workspace', icons_enabled = true } },
   },
   extensions = {},
 })
@@ -115,6 +118,29 @@ config.keys = {
 
   -- Enter copy mode (vi keys): prefix + [
   { key = '[', mods = 'LEADER', action = act.ActivateCopyMode },
+
+  -- List workspaces
+  {
+    key = 'w',
+    mods = 'LEADER',
+    action = act.ShowLauncherArgs { flags = 'FUZZY|WORKSPACES' },
+  },
+  { key = 'n', mods = 'LEADER', action = act.SwitchWorkspaceRelative(1) },
+  { key = 'p', mods = 'LEADER', action = act.SwitchWorkspaceRelative(-1) },
+
+  -- Rename current workspace
+  {
+    key = 'r',
+    mods = 'LEADER',
+    action = act.PromptInputLine {
+      description = 'Enter new name:',
+      action = wezterm.action_callback(function(_, _, line)
+        if line then
+          mux.rename_workspace(mux.get_active_workspace(), line)
+        end
+      end),
+    },
+  },
 }
 
 return config
