@@ -94,7 +94,7 @@ fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-export TERM=wezterm
+# export TERM=wezterm
 
 alias vim=nvim
 alias oc=opencode

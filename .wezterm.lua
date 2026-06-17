@@ -6,6 +6,7 @@ local act = wezterm.action
 local mux = wezterm.mux
 local theme_name = 'Dark+'
 
+config.term = "wezterm"
 config.font_size = 12
 config.color_scheme = theme_name
 config.inactive_pane_hsb = { saturation = 0.5, brightness = 0.2 }
