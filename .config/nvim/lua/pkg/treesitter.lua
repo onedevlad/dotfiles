@@ -5,6 +5,8 @@ end
 
 configs.setup {
   ensure_installed = {
+    "c",
+    "cpp",
     "lua",
     "javascript",
     "typescript",

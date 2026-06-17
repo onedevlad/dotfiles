@@ -19,4 +19,5 @@ wk.setup(config);
 wk.add({
   { "<leader>t", group = "Test", icon = "🧪" },
   { "<leader>v", group = "Diff View", icon = "⚖️" },
+  { "<leader>d", group = "Debug", icon = "🐞" },
 })

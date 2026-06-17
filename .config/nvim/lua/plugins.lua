@@ -81,10 +81,9 @@ require("lazy").setup({
     "mfussenegger/nvim-dap",
     event = "VeryLazy",
     dependencies = {
-      "rcarriga/nvim-dap-ui",
+      "igorlfs/nvim-dap-view",
       "nvim-neotest/nvim-nio",
       "jay-babu/mason-nvim-dap.nvim",
-      "theHamsta/nvim-dap-virtual-text",
     },
   },
 })
