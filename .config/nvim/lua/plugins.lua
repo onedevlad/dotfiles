@@ -53,7 +53,7 @@ require("lazy").setup({
   -- Utilities
   "dnlhc/glance.nvim",
   "kyazdani42/nvim-tree.lua",
-  { "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" },
+  { "sindrets/diffview.nvim", dependencies = "nvim-lua/plenary.nvim" },
   { "folke/which-key.nvim", event = "VeryLazy" },
   {
     "nvim-neotest/neotest",
@@ -67,13 +67,13 @@ require("lazy").setup({
   },
 
   -- Telescope
-  { "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } },
+  { "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
   { "nvim-telescope/telescope-fzf-native.nvim", build = 'make' },
   "nvim-lua/plenary.nvim",
   "vijaymarupudi/nvim-fzf",
 
   -- Treesitter
-  { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 
   -- DAP
   {

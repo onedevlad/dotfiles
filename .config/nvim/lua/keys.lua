@@ -1,12 +1,7 @@
 vim.g.mapleader = ","
 
-local opts = { noremap = true, silent = true }
 local utils = require("utils.main")
-
-local function map(mode, lhs, rhs, custom_opts)
-  local merged_opts = vim.tbl_extend("force", opts, custom_opts or {})
-  vim.api.nvim_set_keymap(mode, lhs, rhs, merged_opts)
-end
+local map = require("utils.keymap")
 
 -- NvimTree
 map("n", "<Leader><Leader>", ":NvimTreeToggle<CR>", { desc = "Toggle filetree" });
@@ -47,11 +42,9 @@ map("n", "P", ":pu<CR>", { desc = "Paste below" })
 map("n", "x", '"+x', { desc = "Cut" })
 map("v", "x", '"+x', { desc = "Cut" })
 
--- Prevent `d` and `x` from cutting text instead of deleting
+-- Prevent `d` from cutting text instead of deleting
 map("n", "d", '"_d')
 map("v", "d", '"_d')
-map("n", "x", '"_x')
-map("v", "x", '"_x')
 
 -- Visual Block --
 map("x", "J", ":move '>+1<CR>gv-gv", { desc = "Move down" })
