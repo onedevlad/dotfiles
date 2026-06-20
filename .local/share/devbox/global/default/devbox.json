@@ -12,7 +12,8 @@
     "fnm":        "latest",
     "htop":       "latest",
     "fzf":        "latest",
-    "ripgrep":    "latest"
+    "ripgrep":    "latest",
+    "bear":       "latest"
   },
   "shell": {
     "init_hook": [
