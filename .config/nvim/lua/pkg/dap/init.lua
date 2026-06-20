@@ -31,6 +31,24 @@ local function stop_on_entry()
   return true
 end
 
+local function locate_bin_executable()
+  local candidates = vim.fn.glob(vim.fn.getcwd() .. "/bin/*", false, true)
+  candidates = vim.tbl_filter(function(f)
+    return vim.fn.executable(f) == 1
+  end, candidates)
+  if #candidates == 1 then return candidates[1] end
+  return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/bin/", "file")
+end
+
+local function prompt_args()
+  local args_string = vim.fn.input('Args: ')
+  return vim.split(args_string, " +")
+end
+
+local function prompt_bin_path()
+  return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+end
+
 -- Configurations
 dap.configurations = {
   c = {
@@ -38,27 +56,21 @@ dap.configurations = {
       name = "Launch (bin/)",
       type = "codelldb",
       request = "launch",
-      program = function()
-        local candidates = vim.fn.glob(vim.fn.getcwd() .. "/bin/*", false, true)
-        candidates = vim.tbl_filter(function(f)
-          return vim.fn.executable(f) == 1
-        end, candidates)
-        if #candidates == 1 then return candidates[1] end
-        return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/bin/", "file")
-      end,
       cwd = "${workspaceFolder}",
+      program = locate_bin_executable,
       stopOnEntry = stop_on_entry,
+      args = prompt_args,
     },
     {
       name = "Launch (pick executable)",
       type = "codelldb",
       request = "launch",
-      program = function()
-        return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-      end,
       cwd = "${workspaceFolder}",
+      program = prompt_bin_path,
+      args = prompt_args,
       stopOnEntry = stop_on_entry,
     },
   },
 }
+
 dap.configurations.cpp = dap.configurations.c

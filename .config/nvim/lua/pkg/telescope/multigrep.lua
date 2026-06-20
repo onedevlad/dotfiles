@@ -1,3 +1,4 @@
+local map = require "utils.keymap"
 local pickers = require "telescope.pickers"
 local finders = require "telescope.finders"
 local make_entry = require "telescope.make_entry"
@@ -22,8 +23,11 @@ local live_multigrep = function (opts)
         table.insert(args, pieces[1])
       end
 
-      if pieces[2] then
-        table.insert(args, "-g")
+      if pieces[2] and pieces[2] ~= "" then
+        -- A bare word (e.g. "lua") is treated as an rg filetype; anything that
+        -- looks like a glob (contains *, ?, /, or .) is passed through as -g.
+        local flag = pieces[2]:match("[*?/.]") and "-g" or "-t"
+        table.insert(args, flag)
         table.insert(args, pieces[2])
       end
 
@@ -46,7 +50,7 @@ local live_multigrep = function (opts)
 end
 
 M.setup = function ()
-  vim.keymap.set("n", "<Leader>a", live_multigrep)
+  map("n", "<Leader>a", live_multigrep, { desc = "Live grep" })
 end
 
 return M

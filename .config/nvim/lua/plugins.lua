@@ -27,7 +27,6 @@ require("lazy").setup({
   "norcalli/nvim-colorizer.lua",
   "maan2003/lsp_lines.nvim",
   "lewis6991/gitsigns.nvim",
-  "lukas-reineke/indent-blankline.nvim",
 
   -- Editing
   "bkad/CamelCaseMotion",
@@ -81,8 +80,9 @@ require("lazy").setup({
     "mfussenegger/nvim-dap",
     event = "VeryLazy",
     dependencies = {
-      "igorlfs/nvim-dap-view",
       "nvim-neotest/nvim-nio",
+      "igorlfs/nvim-dap-view",
+      "Jorenar/nvim-dap-disasm",
       "jay-babu/mason-nvim-dap.nvim",
     },
   },

@@ -84,7 +84,7 @@ config.enable_csi_u_key_encoding = true
 config.leader = { key = 'a', mods = 'ALT', timeout_milliseconds = 1000 }
 
 config.keys = {
-  { key = 'v', mods = 'CTRL', action = act.PasteFrom 'Clipboard' },
+  --[[ { key = 'v', mods = 'CTRL', action = act.PasteFrom 'Clipboard' }, ]]
 
   -- Pane navigation (no prefix): M-C-hjkl
   { key = 'h', mods = 'ALT|CTRL', action = act.ActivatePaneDirection 'Left' },

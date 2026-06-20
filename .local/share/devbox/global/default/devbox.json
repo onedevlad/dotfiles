@@ -1,15 +1,19 @@
 {
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.17.3/.schema/devbox.schema.json",
-  "packages": [
-    "stow@latest",
-    "tmux@latest",
-    "neovim@latest",
-    "lazygit@latest",
-    "postgresql@latest",
-    "fnm@latest",
-    "gdbgui@latest",
-    "htop@latest"
-  ],
+  "packages": {
+    "wezterm": {
+      "version":            "latest",
+      "excluded_platforms": ["x86_64-darwin", "aarch64-darwin"]
+    },
+    "stow":       "latest",
+    "neovim":     "latest",
+    "lazygit":    "latest",
+    "postgresql": "latest",
+    "fnm":        "latest",
+    "htop":       "latest",
+    "fzf":        "latest",
+    "ripgrep":    "latest"
+  },
   "shell": {
     "init_hook": [
       "echo 'Welcome to devbox!' > /dev/null"
